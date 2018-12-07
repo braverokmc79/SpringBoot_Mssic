@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ic.mss.model.dao.mapper.ScoreMapper">
+ 
+    <resultMap id="scoreMAP"  type="ic.mss.model.vo.ScoreVO">
+       <result property="scoreNo" column="keyword_no"/>
+       <result property="userId" column="user_id"/>            
+       
+       <result property="score1" column="keyword_01"/>
+	   <result property="score2" column="keyword_02"/>
+	   <result property="score3" column="keyword_03"/>
+	   <result property="score4" column="keyword_04"/>
+	   <result property="score5" column="keyword_05"/>
+	   <result property="score6" column="keyword_06"/>
+	   <result property="score7" column="keyword_07"/>
+	   <result property="score8" column="keyword_08"/>
+	   <result property="score9" column="keyword_09"/>
+	   <result property="score10" column="keyword_10"/>
+	   <result property="score11" column="keyword_11"/>
+	   <result property="score12" column="keyword_12"/>
+	   <result property="score13" column="keyword_13"/>
+	   <result property="score14" column="keyword_14"/>
+	   <result property="score15" column="keyword_15"/>
+	   <result property="score16" column="keyword_16"/>
+	   <result property="score17" column="keyword_17"/>
+	   <result property="score18" column="keyword_18"/>
+	   <result property="score19" column="keyword_19"/>
+	   <result property="score20" column="keyword_20"/>
+	   <result property="score21" column="keyword_21"/>
+	   <result property="score22" column="keyword_22"/>
+	   <result property="score23" column="keyword_23"/>
+	   <result property="score24" column="keyword_24"/>
+	   <result property="score25" column="keyword_25"/>
+
+    </resultMap>
+
+	 
+	 <select id="scoreGet"  resultMap="scoreMAP">
+	  	select * from 
+	  	
+	  	<choose>
+		    <when test="type == 'zabbix'.toString() ">
+		    keyword_zabbix
+		    </when>
+		    <when test="type =='checkserver'.toString() ">
+		     keyword_checkserver
+		    </when>
+		    <when test="type =='crash'.toString() ">
+		     keyword_crash
+		    </when>
+		  </choose>
+	  	
+	  	 where user_id=#{userId} 
+	 </select>
+	
+	
+	<insert id="scoreCreate" >
+	 
+			insert into
+			
+		<choose>
+		    <when test="type == 'zabbix'">
+		    keyword_zabbix
+		    </when>
+		    <when test="type =='checkserver'">
+		     keyword_checkserver
+		    </when>
+		    <when test="type =='crash'">
+		     keyword_crash
+		    </when>
+		  </choose>
+			
+			
+			   (
+				   keyword_no
+				  ,user_id
+				  				  
+				  ,keyword_01
+				  ,keyword_02
+				  ,keyword_03
+				  ,keyword_04
+				  ,keyword_05
+				  ,keyword_06
+				  ,keyword_07
+				  ,keyword_08
+				  ,keyword_09
+				  ,keyword_10
+				  ,keyword_11
+				  ,keyword_12
+				  ,keyword_13
+				  ,keyword_14
+				  ,keyword_15
+				  ,keyword_16
+				  ,keyword_17
+				  ,keyword_18
+				  ,keyword_19
+				  ,keyword_20
+				  ,keyword_21
+				  ,keyword_22
+				  ,keyword_23
+				  ,keyword_24
+				  ,keyword_25
+				) VALUES (
+				   NULL 
+				  ,#{userId} 
+				   
+				  ,#{score1} 
+				  ,#{score2} 
+				  ,#{score3} 
+				  ,#{score4} 
+				  ,#{score5} 
+				  ,#{score6} 
+				  ,#{score7} 
+				  ,#{score8} 
+				  ,#{score9} 
+				  ,#{score10}
+				  ,#{score11} 
+				  ,#{score12} 
+				  ,#{score13} 
+				  ,#{score14} 
+				  ,#{score15} 
+				  ,#{score16}  
+				  ,#{score17}
+				  ,#{score18}  
+				  ,#{score19}  
+				  ,#{score20} 
+				  ,#{score21} 
+				  ,#{score22} 
+				  ,#{score23} 
+				  ,#{score24}  
+				  ,#{score25}  
+				)
+			
+	</insert>
+	
+	
+	<update id="scoreUpdate" >
+		update	
+		  <choose>
+		    <when test="type == 'zabbix'">
+		    keyword_zabbix
+		    </when>
+		    <when test="type =='checkserver'">
+		     keyword_checkserver
+		    </when>
+		    <when test="type =='crash'">
+		     keyword_crash
+		    </when>
+		  </choose>
+	 
+	  
+		   SET
+
+		   keyword_01 = #{score1} 
+		  ,keyword_02 = #{score2} 
+		  ,keyword_03 = #{score3} 
+		  ,keyword_04 = #{score4} 
+		  ,keyword_05 = #{score5} 
+		  ,keyword_06 = #{score6} 
+		  ,keyword_07 = #{score7} 
+		  ,keyword_08 = #{score8} 
+		  ,keyword_09 = #{score9} 
+		  ,keyword_10 = #{score10} 
+		  ,keyword_11 = #{score11} 
+		  ,keyword_12 = #{score12} 
+		  ,keyword_13 = #{score13} 
+		  ,keyword_14 = #{score14} 
+		  ,keyword_15 = #{score15} 
+		  ,keyword_16 = #{score16} 
+		  ,keyword_17 = #{score17} 
+		  ,keyword_18 = #{score18} 
+		  ,keyword_19 = #{score19} 
+		  ,keyword_20 = #{score20} 
+		  ,keyword_21 =#{score21} 
+		  ,keyword_22 = #{score22}  
+		  ,keyword_23 = #{score23} 
+		  ,keyword_24 = #{score24} 
+		  ,keyword_25 = #{score25} 
+		WHERE user_id = #{userId}  
+	  	
+	</update>
+
+
+
+</mapper>
+
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ic.mss.model.dao.mapper.UserMapper">
+ 
+    <resultMap id="userMap"  type="ic.mss.model.vo.UserVO">
+       <result property="no" column="user_no"/>
+       <result property="id" column="user_id"/>
+       <result property="pw" column="user_pw"/>
+       <result property="email" column="user_email"/>
+    </resultMap>
+
+
+
+	 <select id="userGet"  resultMap="userMap">
+	  	select * from USER where user_id=#{id}
+	 </select>
+	
+	 <select id="userGetEmail"  resultMap="userMap">
+	  	select * from USER where user_email=#{email}
+	 </select>
+	
+	
+	
+	 <select id="userGetList" resultMap="userMap">
+	  	select * from USER order by user_no desc
+	 </select>
+	
+	
+	<insert id="userCreate" >
+	 <![CDATA[  
+		insert into USER 
+			      (user_no,`user_id` ,`user_pw`, user_email )
+			    VALUES ( NULL , #{id},  #{pw} , #{email})
+			]]>
+	</insert>
+	
+	
+	<update id="userUpdate" >
+	  <![CDATA[  
+	  update USER SET `user_pw`=#{pw}  ,`user_email` = #{email}		 
+	  	 WHERE user_id = #{id}
+	  	
+	  	]]>
+	</update>
+
+	<delete id="userDelete">
+		delete from USER where   user_id=#{id}
+	</delete>
+
+
+	<select id="userPwdConfirm" resultMap="userMap">
+		select * from USER where user_id=#{id} and user_pw =#{pw}
+	</select>
+
+</mapper>
+
+
