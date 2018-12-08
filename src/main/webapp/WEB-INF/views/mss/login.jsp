@@ -36,7 +36,7 @@
 								<tr>
 									<td><input id="pw" type="password" size="17" 
 										maxlength="20" name="pw" class="form-control tooltipstered"
-										minlength="1" required="" aria-required="true"										
+										minlength="1" required aria-required="true"										
 										placeholder="최소 8자">
 									</td>
 								</tr>
@@ -47,7 +47,7 @@
 								</tr>
 								<tr>
 									<td id="signupBtnTd">
-<input type="submit" value="로그인" id="signupBtn"
+<input type="submit" value="로그인" id="signupBtn1"
 										class="button form-control tooltipstered"
 										style="background-color: rgb(247, 143, 36); border: 0px solid rgb(247, 143, 36);">
 									</td>
@@ -55,7 +55,7 @@
 								<tr>
 									<td class="joinTd">										
 					<a href="/join/signup">
-					<input value="회원가입" id="signupBtn" class="button form-control tooltipstered"></a>
+					<input value="회원가입" id="signupBtn2" class="button form-control tooltipstered"></a>
 									</td>
 								</tr>
 							</tbody>
@@ -77,23 +77,38 @@
 				// 태그에서 check값만 바꾸고 넘길 수도 있으니 api단에서 validation 또 해야함.
 				$.ajax({
 							type : "POST",
-							dataType : "json",
-							url : "/api/logIn/",
+							dataType : "text",
+							url : "/login/",
 							data : {
-								userId : userID.val(),
-								password : pw.val(),
-								token : "5c08a379457c15.85162198",
-								userAgent : "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36"
+								userID : userID.val(),
+								pw : pw.val()
 							},
-							success : function(d) {
-								// 환영 페이지 이동 
-								if (d.state == "SUCCESS")
-									location.href = "http://dda.ac/signup";
-								else
-									alert(d.error);
+							success : function(result) {
+								// 환영 페이지 이동
+								var d=parseInt($.trim(result));
+								
+								if (d==0){
+									alert("해당 아이디가 없습니다.");
+									$('#userID').val("");
+									$('#pw').val("");
+									return;
+								}else if(d==1){
+									alert("로그인 실패. 비밀번호가 일치하지 않습니다.");
+									$('#pw').val("");
+									return;									
+								}else if(d==3){
+									alert("해당 아이디로 로그인 할 수 없습니다.");
+									return;
+								}else if(d==10){
+									//alert("로그인 성공");									
+									location.href = "/";
+									
+								}else{
+									alert("로그인 할 수 없습니다.");
+									return;
+								}											
 							}
 						});
-
 				return false;
 			}
 		</script>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 	<header class="navbar-fixed-top">
 <div class="visible-md visible-lg" >
 <nav class="container" id="nav" role="navigation" style="max-width: 1024px; ">
@@ -18,12 +18,25 @@
 		</li>
 		
 	</ul>
-	<ul id="" style="float: right; background-color: white;  margin-top: 0px; box-shadow: none; width: 350px; height: 45px">
-		<li style="width: 25%;  display: inline-block; float: right; margin-top: -2px" id="navli">
+
+	<ul id="loginUl" style="float: right; background-color: white;  margin-top: 0px; box-shadow: none; width: 350px; height: 45px">
+	<c:choose>
+		<c:when test="${empty sessionScope.USER }">
+		<li style="width: 25%;  display: inline-block; float: right; margin-top: -2px" id="navli">		  
 		  <a href="/login" style="width: 100%; text-align: right; margin-left: 0px; opacity: 0.5; "
 						class="nav-title">로그인</a>
 		</li>
+		</c:when>
+		<c:otherwise>
+		<li style="width: 25%;  display: inline-block; float: right; margin-top: -2px" id="navli">		  
+		  <a href="/logout" style="width: 100%; text-align: right; margin-left: 0px; opacity: 0.5; "
+						class="nav-title">로그아웃</a>
+		</li>
+		</c:otherwise>
+	</c:choose>
 	</ul>
+	
+	
 </nav>	
 	</div>
 	

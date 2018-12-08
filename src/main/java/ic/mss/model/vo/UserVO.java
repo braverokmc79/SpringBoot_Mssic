@@ -28,13 +28,7 @@ public class UserVO {
 	private String pwConfirm;
 	
 	private String ip;
-	
-	public boolean pwCompare() {		
-		if(this.pw.equals(this.pwConfirm)) {
-			return true;
-		}		
-		return false;
-	}
+
 
 	
 }

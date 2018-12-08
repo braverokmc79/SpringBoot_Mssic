@@ -36,7 +36,7 @@ public class JoinController {
 	@PostMapping("signUp")
 	public void joinAction(UserVO userVO,  Model model, HttpServletResponse response) 
 				throws Exception{
-		log.info("회원 가입 : {}", userVO.toString());		
+		//log.info("회원 가입 : {}", userVO.toString());		
 		PrintWriter out=response.getWriter();
 		try{			
 			userVO.setIp(IpAddress.getIP());

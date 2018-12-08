@@ -3275,7 +3275,7 @@ input {
 	colspan: 2;
 }
 
-#signupBtn1{
+#signupBtn1 {
 	cursor: pointer;
 	margin-top: 0px;
 	height: 40px;
@@ -3285,7 +3285,7 @@ input {
 	opacity: 0.8;
 }
 
-#signupBtn2{
+#signupBtn2 {
 	cursor: pointer;
 	margin-top: 0px;
 	height: 40px;
@@ -3294,7 +3294,6 @@ input {
 	border: 0px solid rgb(56, 142, 60);
 	opacity: 0.8;
 }
-
 
 .joinTd {
 	width: 100%;
@@ -3318,3 +3317,4 @@ input {
 	height: 40px;
 	border: 1px solid #d9d9de;
 }
+
