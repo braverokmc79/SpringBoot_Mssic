@@ -34,8 +34,11 @@ public class LoginController {
 				model.addAttribute("congratulations", "회원 가입을 축하합니다.");
 			}
 		}
-		return  "login";
+		return  "mss/login";
 	}
+	
+	
+
 	
 	
 	@PostMapping("/login")
@@ -48,10 +51,10 @@ public class LoginController {
 		}
 				
 		UserVO userVO =new UserVO();
-		userVO.setId(loginUserVO.getId());
+		
 		userVO.setPw(loginUserVO.getPw());
 		
-		UserVO user=userService.userPwdConfirm(userVO);
+		UserVO user=null;//userService.userPwdConfirm(userVO);
 		if(user==null) {
 			model.addAttribute("errorMessage" , "아이디와 비밀번호가 일치 하지 않습니다.");
 			return "login";

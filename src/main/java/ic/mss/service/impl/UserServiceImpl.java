@@ -18,45 +18,27 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserMapper userMapper;
-	
+
+	//아이디 중복 체크
+	@Override
+	public Integer userGet(UserVO userVO) throws Exception {
+		return userMapper.userGet(userVO);
+	}
+
+	// 닉네임 중복 체크
+	@Override
+	public Integer userGetNickname(UserVO userVO) throws Exception {
+		return userMapper.userGetNickname(userVO);
+	}
+
+	//유저 가입 생성
 	@Override
 	public void userCreate(UserVO userVO) throws Exception {
 		userMapper.userCreate(userVO);
 	}
-
-	@Override
-	public List<UserVO> userGetList() throws Exception {		
-		return userMapper.userGetList();
-	}
-
-	@Override
-	public UserVO userGet(UserVO userVO) throws Exception {
-		return userMapper.userGet(userVO);
-	}
-
-	@Override
-	public void userUpdate(UserVO userVO) throws Exception {
-		userMapper.userUpdate(userVO);
-	}
-
-	@Override
-	public void userDelete(UserVO userVO) throws Exception {
-		userMapper.userDelete(userVO);
-	}
 	
 	
-
-	@Override
-	public UserVO userGetEmail(UserVO userVO) throws Exception {
-		return userMapper.userGetEmail(userVO);
-	}
-
-	@Override
-	public UserVO userPwdConfirm(UserVO userVO) throws Exception {
-		// TODO Auto-generated method stub
-		return userMapper.userPwdConfirm(userVO);
-	}
-
+	
 	
 	
 }

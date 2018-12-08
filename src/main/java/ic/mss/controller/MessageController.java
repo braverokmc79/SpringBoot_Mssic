@@ -16,8 +16,8 @@ import ic.mss.model.vo.MessageVO;
 import ic.mss.model.vo.UserVO;
 import ic.mss.service.MessageService;
 
-@Controller
-@RequestMapping("/users/message/**")
+//@Controller
+//@RequestMapping("/users/message/**")
 public class MessageController {
 
 	private static final Logger log = LoggerFactory.getLogger(MessageController.class);
