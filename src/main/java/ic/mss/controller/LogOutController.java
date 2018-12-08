@@ -5,17 +5,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//@Controller
+@Controller
 public class LogOutController {
 
-	
+	//로그 아웃
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) throws Exception {		
 		session.invalidate();
-		return "redirect:/login";
+		return "redirect:/";
 	}
-	
-	
-	
 	
 }
