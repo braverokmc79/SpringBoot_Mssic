@@ -36,5 +36,22 @@
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/plyr/3.4.7/plyr.min.js'></script>
+
+
+  <script>
+    $( document ).ready( function() {
+      $( window ).scroll( function() {
+        if ( $( this ).scrollTop() > 200 ) {
+          $( '.top' ).fadeIn();
+        } else {
+         // $( '.top' ).fadeOut();
+        }
+      } );
+      $( '.top' ).click( function() {
+        $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+        return false;
+      } );
+    } );
+  </script>
 	
 	

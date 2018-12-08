@@ -120,11 +120,17 @@ $('#userID').on('keyup', function() {
         success: function (result) {
         	var d=parseInt($.trim(result));
         	if (d == 0) {
-	        	// 중복 없음
-        		userID.addClass("checkedValue");
-        		userID.attr("check", "0");
-        		userIdValidation.text("사용 가능한 아이디입니다.");
-	        	userIdValidation.css("color", checkedValueColor);
+        		
+        		if (userID.val() == "") {
+        			userIdValidation.text("아이디를 입력해주세요.");
+        			userIdValidation.css("color", defaultColor);
+        		}else{
+		        	// 중복 없음
+	        		userID.addClass("checkedValue");
+	        		userID.attr("check", "0");
+	        		userIdValidation.text("사용 가능한 아이디입니다.");
+		        	userIdValidation.css("color", checkedValueColor);        			
+        		}        		
         	} else if (d >0) {
 	        	// 중복 있음
 	        	userID.addClass("usedValue");
@@ -156,11 +162,18 @@ $('#nickname').on('keyup', function() {
         	var d=parseInt($.trim(result));
         	
         	if (d==0) {
-	        	// 중복 없음
-        		nickname.addClass("checkedValue");
-        		nickname.attr("check", "0");
-        		nicknameValidation.text("사용 가능한 닉네임입니다.");
-        		nicknameValidation.css("color", checkedValueColor);
+        		
+        		if (nickname.val() == "") {
+        			nicknameValidation.text("닉네임을 입력해주세요.");
+        			nicknameValidation.css("color", defaultColor);
+        		}else{
+    	        	// 중복 없음
+            		nickname.addClass("checkedValue");
+            		nickname.attr("check", "0");
+            		nicknameValidation.text("사용 가능한 닉네임입니다.");
+            		nicknameValidation.css("color", checkedValueColor);
+        		}
+
         	} else if (d > 0) {
 	        	// 중복 있음
 	        	nickname.addClass("usedValue");

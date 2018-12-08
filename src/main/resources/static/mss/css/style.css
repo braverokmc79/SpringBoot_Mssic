@@ -3318,3 +3318,29 @@ input {
 	border: 1px solid #d9d9de;
 }
 
+.top>div {
+	color: white;
+	margin-right: 15px;
+	width: 75px;
+	font-size: 14px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	z-index: 100;
+	background-color: #f78f24;
+	opacity: 0.8;
+}
+
+.top>div:hover {
+	color: white;
+}
+
+#deckFooterAd {
+	text-align: center;
+	width: 100%;
+	height: auto;
+	display: inline-block;
+	margin-bottom: 32px;
+	margin-top: 48px;
+}

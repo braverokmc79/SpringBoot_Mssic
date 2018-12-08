@@ -14,7 +14,7 @@
 		 </li>
 		
 		<li id="navli">
-		  <a class="nav-title" href="http://dda.ac/deck">음악사이트</a>
+		  <a class="nav-title" href="/music/site">음악사이트</a>
 		</li>
 		
 	</ul>
