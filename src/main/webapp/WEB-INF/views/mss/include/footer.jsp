@@ -10,7 +10,7 @@
 				<p class="footer-v2-tips">
 					All Rights Reserved.</a>
 				</p>
-				<p class="footer-v2-tips">MSS.IC MEMBER
+				<p class="footer-v2-tips">무료음악 스트리밍 사이트
 			</div>
 		</div>
 	</footer>
@@ -29,7 +29,6 @@
 		<script src="/resources/mss/js/summernote-lite.js"></script>
 		<script src="/resources/mss/js/summernote-bs4.min.js"></script>
 		<script src="/resources/mss/js/summernote-bs4.js"></script>
-		<script async="" src="/resources/mss/js/ddaacAds_direct.js"></script>
 		<script type="text/javascript" src="/resources/mss/js/d3.v3.min.js"></script>
 		<script type="text/javascript" src="/resources/mss/js/jquery.cookie.min.js"></script>			
 		<script src="/resources/mss/js/spectrum.js"></script>

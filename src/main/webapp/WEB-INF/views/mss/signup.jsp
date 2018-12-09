@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td>
-<input check="1" id="userID"  type="text" name="userID" class="form-control tooltipstered" min="1" maxlength="10" required aria-required="true"  placeholder="최대 10자">
+<input check="1" id="userID"  type="text" name="userID" class="form-control tooltipstered" minlength="1" maxlength="10" required aria-required="true"  placeholder="최대 10자">
                             </td>
                         </tr>
                         <tr>
@@ -35,7 +35,7 @@
                         </tr>
                         <tr>
                             <td>
-<input check="1" id="nickname" type="text" name="nickname" class="form-control tooltipstered" min="1" maxlength="10" required
+<input check="1" id="nickname" type="text" name="nickname" class="form-control tooltipstered" minlength="1" maxlength="10" required
  aria-required="true"  placeholder="최대 10자">
                             </td>
                         </tr>
@@ -47,7 +47,7 @@
                         <tr>
                             <td>
 <input id="pw" type="password" size="17" maxlength="20" name="pw" class="form-control tooltipstered" 
-min="1" required aria-required="true"  placeholder="최소 8자">
+minlength="8" required aria-required="true"  placeholder="최소 8자">
                             </td>
                         </tr>
                         <tr>

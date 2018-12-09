@@ -3219,20 +3219,7 @@ input {
 	color: #555;
 }
 
-.panel-warning {
-	border: 1px solid #dadada;
-	border-radius: 6px;
-	background-image: url(/resources/mss/images/login.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-}
 
-.panel-title {
-	background-color: white;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-bottom: 25px;
-}
 
 #sectionContainer {
 	padding-top: 110px;
@@ -3258,65 +3245,7 @@ input {
 	text-align: left;
 }
 
-#loginForm {
-	margin-bottom: 0;
-}
 
-#pw {
-	ime-mode: inactive;
-	margin-bottom: 25px;
-	height: 40px;
-	border: 1px solid #d9d9de;
-}
-
-#signupBtnTd {
-	width: 100%;
-	text-align: center;
-	colspan: 2;
-}
-
-#signupBtn1 {
-	cursor: pointer;
-	margin-top: 0px;
-	height: 40px;
-	color: white;
-	background-color: rgb(100, 221, 23);
-	border: 0px solid rgb(56, 142, 60);
-	opacity: 0.8;
-}
-
-#signupBtn2 {
-	cursor: pointer;
-	margin-top: 0px;
-	height: 40px;
-	color: white;
-	background-color: rgb(100, 221, 23);
-	border: 0px solid rgb(56, 142, 60);
-	opacity: 0.8;
-}
-
-.joinTd {
-	width: 100%;
-	text-align: center;
-	colspan: 2;
-	margin-top: 24px;
-	padding-top: 12px;
-	border-top: 1px solid #ececec;
-}
-
-#pwre {
-	ime-mode: inactive;
-	margin-bottom: 25px;
-	height: 40px;
-	border: 1px solid #d9d9de;
-}
-
-#nickname {
-	margin-bottom: 25px;
-	width: 100%;
-	height: 40px;
-	border: 1px solid #d9d9de;
-}
 
 .top>div {
 	color: white;
@@ -3345,131 +3274,29 @@ input {
 	margin-top: 48px;
 }
 
-#music-title {
-	font-family: 'Gilbert-Color';
-	/* background-color: #F44336; */
-	color: #f78f24;
-	text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -3px 20px
-		rgba(255, 255, 255, 0.4);
-	font-size: 3em;
-}
 
-.main-post-card {
-	box-shadow: 10px 10px 10px #666;
+
+#music-title{
+ font-family: 'Gilbert-Color';
+ /* background-color: #F44336; */
+ color: #f78f24;
+ text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -3px 20px rgba(255,255,255,0.4);
+ font-size: 50px;
+}
+.main-post-card{
+	box-shadow:10px 10px 10px #666;
 	margin-bottom: 30px;
 }
 
-.main-post-card img {
+.main-post-card img{
 	border: 0px solid #fff;
 }
-
-.main-post-card:hover {
-	box-shadow: 12px 15px 12px grey;
+.main-post-card:hover{
+	box-shadow:12px 15px 12px grey;
 }
-
-.main-post-card-title:hover {
-	color: #f78f24;
+.main-post-card-title:hover{
+  color:#f78f24;
 }
-
-.main-post-card>img:hover {
-	box-shadow: 10px 10px 10px #666;
-}
-
-#boardComment {
-	display: grid;
-	border-bottom: 0px;
-	background-color: white;
-	text-align: left;
-	min-height: 140px;
-}
-
-#submitbtn {
-	float: left;
-	margin-bottom: 25px;
-	width: 100%;
-	height: 40px;
-	border: 1px solid #d9d9de;
-}
-
-#clicktoshow1 {
-	float: left;
-	margin-bottom: 25px;
-	width: 100%;
-	height: 40px;
-	border: 1px solid #d9d9de;
-}
-
-#clicktoshow3 {
-	height: 40px;
-	color: white;
-	background-color: #f78f24;
-	border: 0px solid #f78f24;
-	opacity: 0.8;
-}
-
-#clicktoshow2 {
-	ime-mode: inactive;
-	float: right;
-	margin-bottom: 25px;
-	width: 48%;
-	height: 40px;
-	border: 1px solid #d9d9de;
-}
-
-#boardCommentForm {
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-top: 20px;
-	margin-bottom: 35px;
-}
-
-
-
-
-
-#boardModal2 .modal-dialog {
-	max-width: 280px;
-	margin: auto;
-	margin-top: 30px;
-}
-
-#boardModal2 .modal-dialog .modal-content {
-	text-align: center;
-}
-
-#boardModal2 .modal-dialog .modal-content input.board-edit-input,
-	#boardModal2 .modal-dialog .modal-content input.board-delete-input {
-	padding: 6px 12px;
-	border: 1px solid #ececec;
-	border-radius: 4px;
-	border-bottom-right-radius: 0px;
-	border-top-right-radius: 0px;
-}
-
-#modalSubmit2{
-	
-	padding: 6px 12px;
-    border: 1px solid #d67c20;
-    border-radius: 4px;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
-    background-color: #f78f24;
-    color: #fff;
-}
-#boardModal2 .modal-dialog .modal-content input.board-edit-submit,
-	#boardModal2 .modal-dialog .modal-content input.board-delete-submit {
-	padding: 6px 12px;
-	border: 1px solid #d67c20;
-	border-radius: 4px;
-	border-bottom-left-radius: 0px;
-	border-top-left-radius: 0px;
-	background-color: #f78f24;
-	color: #fff;
-}
-
-#boardModal2 .modal-dialog .modal-content p.board-edit-tip {
-	font-size: 12px;
-	color: #999;
-	margin-top: 5px;
-	word-break: keep-all;
+.main-post-card>img:hover{
+	box-shadow:10px 10px 10px #666;
 }

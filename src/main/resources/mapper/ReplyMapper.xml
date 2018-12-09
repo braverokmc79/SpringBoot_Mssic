@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ic.mss.model.dao.mapper.ReplyMapper">
+
+ 	<resultMap id="replyMAP" type="ic.mss.model.vo.ReplyVO">
+ 		<result property="rno" column="rno" />
+		<result property="bno" column="bno" />		
+
+		<result property="content" column="r_content" />
+		<result property="userID" column="userID" />
+		
+		<result property="rnickname" column="r_nickname" />
+		<result property="rpw" column="r_pw" />	
+		<result property="rip" column="r_ip" />
+		<result property="regdate" column="r_regdate" />													    
+	</resultMap>
+ 
+
+	<insert id="createBoard">
+		INSERT into tbl_reply (bno, r_content,userID ,r_nickname ,r_pw ,r_ip ) 			  			  
+		VALUES (#{bno} , #{content} ,#{userID} ,#{rnickname} ,#{rpw} ,#{rip} )
+	</insert>
+
+	<select id="listAllReplyVO" resultMap="replyMAP">
+		select * from 	tbl_reply where bno=#{bno} order by rno asc
+	</select>
+
+
+
+	<select id="getRnoInfo" resultMap="replyMAP">
+	select * from 	tbl_reply where rno=#{rno} 
+	</select>
+	
+	<delete id="deleteBoard">
+	 delete from tbl_reply where rno=#{rno} 
+	</delete>
+	
+	
+	<select id="getPasowrdConfirm" resultType="int">
+	  select count(*) from tbl_reply where rno=#{rno} and r_pw=#{rpw}
+	</select>
+	
+	<delete id="removePassowrd">
+	 delete from tbl_reply where rno=#{rno} and r_pw=#{rpw}
+	</delete>
+
+</mapper>
+
+
+
+
+

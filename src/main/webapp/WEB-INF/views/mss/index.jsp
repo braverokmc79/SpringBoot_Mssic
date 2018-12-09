@@ -11,13 +11,10 @@
 	
 	
 <section class="header-banner">
-<!-- 	<div class="container default-text-banner"> -->
-<!-- 		<p><a href="/board/boardView?id=12913">[공지] 메인 화면이 리뉴얼되었습니다.</a><span><img class="close-banner" src="/static/img/close-banner.png"></span></p> -->
-<!-- 	</div> -->
 </section>
 <section class="main-header-v2 main-v2-section">
 	<div class="container">
-		<p class="main-header-small">무료음악 스트리밍 사이트</p>
+		<p class="main-header-small" style="font-weight: 500;">무료음악 스트리밍 사이트</p>
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
 		
@@ -217,74 +214,8 @@
 		</div>
 	</div>
 </section>
-<section class="main-v2-reviews main-v2-section">
-	<div class="container">
-		<p class="main-section-title">카드 평가</p>
-		<p class="main-section-small">Card Reviews</p>
-		<div class="row">
-		<div class="col-md-4">
-				<a href="http://dda.ac/#">
-					<div class="card-reviews-card rastakhan-bg">
-						<div class="card-reviews-card-text">
-							<p class="ellipsis card-review-title">라스타칸의 대난투</p>
-							<p class="ellipsis card-review-tip">DDaHyoNi, Dawn, RenieHouR</p>
-						</div>
-					</div>
-				</a>	
-			</div>
-			<div class="col-md-4">
-				<a href="http://dda.ac/boomsday">
-					<div class="card-reviews-card boomsday-bg">
-						<div class="card-reviews-card-text">
-							<p class="ellipsis card-review-title">박사붐의 폭심만만 프로젝트</p>
-							<p class="ellipsis card-review-tip">DDaHyoNi, RenieHouR, DacRyvius, Sonagi, Jinsoo</p>
-						</div>
-					</div>
-				</a>	
-			</div>
-			<div class="col-md-4">
-				<a href="http://dda.ac/witchwood">
-					<div class="card-reviews-card witchwood-bg">
-						<div class="card-reviews-card-text">
-							<p class="ellipsis card-review-title">마녀숲</p>
-							<p class="ellipsis card-review-tip">RenieHouR, Steelo, DDaHyoNi, DawN, Kranich, DacRyvius, Tail</p>
-						</div>
-					</div>
-				</a>	
-			</div>
-			
-		</div>
-		<div id="mMainFooterAd" style="width:100%; height:auto; display:inline-block; margin-bottom: 32px; margin-top: 48px;text-align: cetner"><script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2592940546088488" data-ad-slot="8290926289" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle || []).push({});</script></div>
-	</div>
-</section>
-<script>
-$('.close-banner').click(function() {
-	$('.default-text-banner').css('display', 'none');
-});
 
-$('.main-deck-submit').click(function() {
-	var keyword = $('.main-deck-search').val();
-
-	location.href = "/deck?sw=" + keyword;
-});
-
-//  엔터키입력 검색도 추가 
-$('.main-deck-search').focus(function() {
-	$('input[type="text"]').keydown(function() {
-	    if (event.keyCode === 13) {
-	    	var keyword = $('.main-deck-search').val();
-	    	location.href = "/deck?sw=" + keyword;
-	    }
-	});
-	
-});
-</script>        
-		<div class="visible-lg" id="banner1" style="position: absolute; z-index: 300; right: 49%; top: 250px; margin-right: 615px;">
-			<div id="pcVerticalLeftAd"><script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- pcVerticalLeft --><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-2592940546088488" data-ad-slot="8765553097"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-		</div>
-		<div class="visible-lg" id="banner2" style="position: absolute; z-index: 300; left: 49%; top: 250px; margin-left: 615px;">
-			<div id="pcVerticalRightAd"><script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- pcVerticalRgith --><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-2592940546088488" data-ad-slot="9228587524"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-		</div>
+       
 
 
 <c:import url="./include/nav-bottom.jsp"/>	

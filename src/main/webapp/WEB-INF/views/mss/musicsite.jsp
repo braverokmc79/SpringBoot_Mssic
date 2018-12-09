@@ -5,33 +5,6 @@
 <html lang="ko">
 <head>
 <c:import url="include/head.jsp" />
-<style type="text/css">
-
-#music-title{
- font-family: 'Gilbert-Color';
- /* background-color: #F44336; */
- color: #f78f24;
- text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -3px 20px rgba(255,255,255,0.4);
- font-size: 50px;
-}
-.main-post-card{
-	box-shadow:10px 10px 10px #666;
-	margin-bottom: 30px;
-}
-
-.main-post-card img{
-	border: 0px solid #fff;
-}
-.main-post-card:hover{
-	box-shadow:12px 15px 12px grey;
-}
-.main-post-card-title:hover{
-  color:#f78f24;
-}
-.main-post-card>img:hover{
-	box-shadow:10px 10px 10px #666;
-}
-</style>
 </head>
 <body>
 	<c:import url="include/header.jsp" />

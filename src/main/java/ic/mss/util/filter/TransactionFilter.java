@@ -12,12 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-/**
- * @author 최준호 (braverokmc79@gmail.com)
-     
-   @업데이트일 2018. 11. 16. 오후 8:38:42
-	
- */
+
 //@Component
 //@Order(1)
 public class TransactionFilter implements Filter {

@@ -11,7 +11,7 @@ import com.navercorp.lucy.security.xss.servletfilter.XssEscapeServletFilter;
 
 //XSS 보안  필터
 
-//@Configuration
+@Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 	
 	//참조 
@@ -34,7 +34,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registrationBean.setFilter(new XssEscapeServletFilter());
         registrationBean.setOrder(1);
        // registrationBean.addUrlPatterns("*.do", "*.go");    //filter를 거칠 url patterns
-        registrationBean.addUrlPatterns("*.do", "*.go" ,"/member/*");    //filter를 거칠 url patterns        
+        //registrationBean.addUrlPatterns("*.do", "*.go" ,"/member/*");    //filter를 거칠 url patterns
+        registrationBean.addUrlPatterns("/recommendation/*");    //filter를 거칠 url patterns   
         return registrationBean;
     }    
     

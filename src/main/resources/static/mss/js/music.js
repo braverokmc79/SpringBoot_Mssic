@@ -203,6 +203,8 @@ jQuery(function ($) {
                 "duration": "8:36",
                 "file": "SSB___11_03_TFTake_2"
             }],
+            
+            
             buildPlaylist = $(tracks).each(function(key, value) {
                 var trackNumber = value.track,
                     trackName = value.name,

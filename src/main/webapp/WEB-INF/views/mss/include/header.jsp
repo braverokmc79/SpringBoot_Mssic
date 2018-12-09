@@ -10,7 +10,7 @@
 		</li>
 		
 		<li id="navli">
-		  <a class="nav-title"  href="http://dda.ac/contents">추천할 곡을 적어 주세요!</a>
+		  <a class="nav-title"  href="/recommendation/list">추천할 곡을 적어 주세요!</a>
 		 </li>
 		
 		<li id="navli">

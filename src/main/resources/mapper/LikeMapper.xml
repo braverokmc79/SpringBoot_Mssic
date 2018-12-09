@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ic.mss.model.dao.mapper.LikeMapper">
+ 
+ 	
+ 	<select id="likeList" resultType="ic.mss.model.vo.LikeVO">
+ 		select *  from  tbl_like where bno=#{bno}
+ 	</select>
+	
+	
+	<insert id="insert">
+	insert into tbl_like  (bno, lip) VALUES ( #{bno}, #{lip} )
+ 
+	</insert>
+	
+	
+	<delete id="delete">
+		delete from tbl_like where bno=#{bno} and lip=#{lip}
+	</delete>
+
+
+
+</mapper>
+
+
+
+
+
