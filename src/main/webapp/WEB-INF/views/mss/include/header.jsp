@@ -55,62 +55,27 @@
 							<li class="mobilenav"
 								style="background-color: #fff; color: #333 !important"><a
 								style="color: #333 !important" href="/login"><img
-									src="/resources/mss/images/mobilenav-logo.png">로그인<span>&gt;</span></a></li>
-							<li class="mobilenav"><a href="http://dda.ac/contents"><img
-									src="/resources/mss/images/mobilenav-contents.png">컨텐츠<span>&gt;</span></a></li>
-							<li class="mobilenav"><a href="http://dda.ac/deck"><img
-									src="/resources/mss/images/mobilenav-deck.png">덱리스트<span>&gt;</span></a></li>
-							<li class="mobilenav"><a href="http://dda.ac/twitter"><img
-									src="/resources/mss/images/mobilenav-twitter.png">해외 프로 실시간 덱
-									트위터<span>&gt;</span><span
-									style="width: 8px; height: 8px; background-color: red; float: right; margin-top: 15px; margin-right: 32px; border-radius: 4px;"></span></a></li>
-							<li class="mobilenav"><a href="http://dda.ac/cardEstimate"><img
-									src="/resources/mss/images/mobilenav-kobold.png">카드평가<span>&gt;</span></a></li>
-							<li class="mobilenav"><a href="http://dda.ac/board"><img
-									src="/resources/mss/images/mobilenav-board.png">게시판<span>&gt;</span></a></li>
-							<!-- 
-                                <li class="mobilenav"><a href="https://twip.kr/donate/psc2321" target="_blank"><img src="/static/img/mobilenav-donate.png">후원하기<span>></span><span style="width: 8px;height: 8px;background-color:red;float: right;margin-top: 15px;margin-right: 138px;border-radius: 4px;"></span></a></li>
-								-->
+									src="/resources/mss/images/four-leaf-clover.png">로그인<span>&gt;</span></a></li>
+<li class="mobilenav"><a href="/recommendation/list"><img
+									src="/resources/mss/images/mobilenav-contents.png">추천할 곡을 적어 주세요!<span>&gt;</span></a></li>
+							<li class="mobilenav"><a href="/music/site"><img
+									src="/resources/mss/images/mobilenav-deck.png">음악사이트<span>&gt;</span></a></li>
+			
 						</ul>
 						<ul
 							style="clear: both; text-align: left; padding-left: 20px; font-size: 14px; margin-right: 20px">
 							<span style="color: white">.</span>
-							<br>최근 인기 컨텐츠
-							<li
-								style="width: 100%; padding-right: 15px; height: 50px; padding-top: 2px"
-								class="post-rank ellipsis"><a class="a-click"
-								href="http://dda.ac/contents/postView?id=330"><span
-									class="txt-point">1</span> 라스타칸 첫 날에 해볼만 한 20가지 덱들</a></li>
-							<li
-								style="width: 100%; padding-right: 15px; height: 50px; padding-top: 2px"
-								class="post-rank ellipsis"><a class="a-click"
-								href="http://dda.ac/contents/postView?id=329"><span
-									class="txt-point">2</span> vS 야생 Data Reaper Report #14</a></li>
-							<li
-								style="width: 100%; padding-right: 15px; height: 50px; padding-top: 2px"
-								class="post-rank ellipsis"><a class="a-click"
-								href="http://dda.ac/contents/postView?id=328"><span
-									class="txt-point">3</span> 이글 도끼와 얼음 파괴자의 노래#20</a></li>
-							<li
-								style="width: 100%; padding-right: 15px; height: 50px; padding-top: 2px"
-								class="post-rank ellipsis"><a class="a-click"
-								href="http://dda.ac/contents/postView?id=327"><span
-									class="txt-point">4</span> vS Data Reaper Report #113</a></li>
-							<li
-								style="width: 100%; padding-right: 15px; height: 50px; padding-top: 2px"
-								class="post-rank ellipsis"><a class="a-click"
-								href="http://dda.ac/contents/postView?id=326"><span
-									class="txt-point">5</span> vS Data Reaper Report #112</a></li>
+							<br>베스트 추천 글
+							
+			<c:import url="/recommendation/besetLike" />
+			
 						</ul>
 					</div>
 				</div>
-				<div id="dark"
+<div id="dark"
 					style="width: 100%; height: 5000px; background-color: black; opacity: 0.5; position: absolute; top: 0px; display: none; z-index: 200;"></div>
-				<a href="http://dda.ac/"
-					style="display: -webkit-inline-box; text-align: center; margin: 0 auto;"><img
-					src="/resources/mss/images/hr_logo.png"
-					style="width: 76px; height: 16px; margin-top: -17px; margin-left: 5px"></a>
-				<!--<a href="#" class="nav-title" style="width:56px; display:inline; position: absolute; top: -4px; right: 15px;">Sign up</a>-->
+				
+				
 			</nav>
 		</div>
 	

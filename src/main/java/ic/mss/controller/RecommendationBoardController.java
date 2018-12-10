@@ -202,6 +202,17 @@ public class RecommendationBoardController {
 	
 	
 
+	//베스트 추천글
+	//읽기
+	@GetMapping("besetLike")
+	public String besetLike( Model model) throws Exception{		
+		//추천 1개 이상 최신 데이터  5개 항목 가져오기
+		List<BoardVO> likeList=recommendationBoardService.getReadLikeList();
+		model.addAttribute("likeList", likeList);
+	
+		return "mss/besetLike";
+	}
+	
 
 
 	
