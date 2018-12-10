@@ -29,6 +29,10 @@ public interface RecommendationBoardService {
 	
 	public List<BoardVO> getReadLikeList() throws Exception;
 	
+	public List<BoardVO> bestViewList() throws Exception;
+	
+	public List<BoardVO> bestCommentList() throws Exception;
+	
 	
 	
 }

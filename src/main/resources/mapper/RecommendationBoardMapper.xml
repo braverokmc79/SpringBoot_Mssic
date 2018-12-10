@@ -133,6 +133,67 @@
 		</select>
 		
 		
+		<select id="bestViewList" resultType="ic.mss.model.vo.BoardVO">
+		<![CDATA[	
+		
+		select * from
+		
+		(
+		select 
+				
+				 a.*  ,
+				  	 (select count(*) from tbl_reply where bno=a.bno) as rplycnt ,
+				     
+						  (select count(*) from tbl_like where bno=a.bno) as likecnt
+				 
+				 from   (
+					select  bno, title,  bnickname, userID, imgcnt, pw, ip, regdate, viewcnt 
+					
+						FROM tbl_board 
+				  
+				    ) as a 
+		        
+		        
+		   )     
+		     as k   
+		          where   viewcnt >1
+		        
+		        
+		        order by  viewcnt desc , regdate desc limit 0, 5
+		
+		  ]]> 
+		</select>
+		
+
+		<select id="bestCommentList" resultType="ic.mss.model.vo.BoardVO">
+		<![CDATA[	
+		
+		select * from
+		
+		(
+		select 
+				
+				 a.*  ,
+				  	 (select count(*) from tbl_reply where bno=a.bno) as rplycnt ,
+				     
+						  (select count(*) from tbl_like where bno=a.bno) as likecnt
+				 
+				 from   (
+					select  bno, title,  bnickname, userID, imgcnt, pw, ip, regdate, viewcnt 
+					
+						FROM tbl_board 
+				  
+				    ) as a 
+		        
+		        
+		   )     
+		     as k   
+		          where   rplycnt >1
+		        
+		        
+		        order by rplycnt desc ,regdate desc  limit 0, 5
+		  ]]> 
+		</select>
 	
 </mapper>
 

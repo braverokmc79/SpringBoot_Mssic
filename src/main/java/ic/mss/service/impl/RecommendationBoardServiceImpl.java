@@ -66,4 +66,14 @@ public class RecommendationBoardServiceImpl implements RecommendationBoardServic
 		return mapper.getReadLikeList();
 	}
 
+	@Override
+	public List<BoardVO> bestViewList() throws Exception {		
+		return mapper.bestViewList();
+	}
+
+	@Override
+	public List<BoardVO> bestCommentList() throws Exception {	
+		return mapper.bestCommentList();
+	}
+
 }

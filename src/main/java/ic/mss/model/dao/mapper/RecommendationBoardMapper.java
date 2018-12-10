@@ -32,4 +32,8 @@ public interface RecommendationBoardMapper {
 	public void viewcntAdd(BoardVO boardVO) throws Exception;
 	
 	public List<BoardVO> getReadLikeList() throws Exception;
+	
+	public List<BoardVO> bestViewList() throws Exception;
+	
+	public List<BoardVO> bestCommentList() throws Exception;
 }
