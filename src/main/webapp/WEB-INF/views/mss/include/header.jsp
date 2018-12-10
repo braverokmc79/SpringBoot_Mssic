@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<c:set var="URL" value="${pageContext.request.requestURL}" />
+<c:set var="URI" value="${pageContext.request.requestURI}" />
 	<header class="navbar-fixed-top">
 <div class="visible-md visible-lg" >
 <nav class="container" id="nav" role="navigation" style="max-width: 1024px; ">
@@ -9,12 +14,12 @@
 			</a>
 		</li>
 		
-		<li id="navli">
-		  <a class="nav-title"  href="/recommendation/list">추천할 곡을 적어 주세요!</a>
+		<li id="navli"   >
+		  <a class="nav-title"  href="/recommendation/list"  style="<c:if test="${fn:contains(URL, 'recommendation')}" >color: red; opacity: 0.5;</c:if>">추천할 곡을 적어 주세요!</a>
 		 </li>
 		
 		<li id="navli">
-		  <a class="nav-title" href="/music/site">음악사이트</a>
+		  <a class="nav-title" href="/music/site"   style="<c:if test="${fn:contains(URL, '/music')}" >color: red; opacity: 0.5;</c:if>">음악사이트</a>
 		</li>
 		
 	</ul>

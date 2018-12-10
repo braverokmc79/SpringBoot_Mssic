@@ -54,6 +54,6 @@
 		
 
 <c:import url="include/footer.jsp"/>
-
+<script src="/resources/js/main.js"></script>
 </body>
 </html>

@@ -52,7 +52,10 @@ public class RecommendationBoardController {
 			boardVO.setImgcnt(0);
 		}
 		
-		boardVO.setIp(IpAddress.getIP());		
+		boardVO.setIp(IpAddress.getIP());
+		
+		boardVO.setting();
+		
 		recommendationBoardService.register(boardVO);		
 		return "redirect:list";
 	}
@@ -187,6 +190,9 @@ public class RecommendationBoardController {
 	@PostMapping("update")
 	public String boardUpdate(BoardVO boardVO) throws Exception{
 		log.info(" update   {} ", boardVO.toString());
+		
+		boardVO.setting();
+		
 		recommendationBoardService.boardUpdate(boardVO);		
 		return "redirect:read/"+boardVO.getBno();
 	}

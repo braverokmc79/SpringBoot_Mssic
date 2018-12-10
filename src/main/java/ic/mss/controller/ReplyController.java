@@ -55,7 +55,10 @@ public class ReplyController {
 			
 			ReplyVO vo=setting(replyVO, session);
 			log.info("등록 :   {} ", vo.toString());
+			
+			replyVO.setting();		
 			service.createBoard(vo);
+			
 			entity=new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		}catch(Exception e) {
 			entity =new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);

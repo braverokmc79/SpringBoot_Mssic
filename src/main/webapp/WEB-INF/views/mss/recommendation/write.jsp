@@ -62,7 +62,7 @@ name="title"  placeholder="제목을 입력해주세요 (최대 50자)" />
 <p class="error"><form:errors  path="bnickname" /></p>                 
                                     
 							<p>
-<input class="form-control tooltipstered winput" minlength="4" maxlength="4" required aria-required="true" name="pw" 
+<input type="password" class="form-control tooltipstered winput" minlength="4" maxlength="4" required aria-required="true" name="pw" 
  placeholder="비밀번호를 입력해주세요 (4자)" />
  </p>			
  <p class="error"><form:errors  path="pw" /></p>   

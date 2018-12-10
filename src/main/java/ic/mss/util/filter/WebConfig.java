@@ -11,7 +11,7 @@ import com.navercorp.lucy.security.xss.servletfilter.XssEscapeServletFilter;
 
 //XSS 보안  필터
 
-@Configuration
+//@Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 	
 	//참조 

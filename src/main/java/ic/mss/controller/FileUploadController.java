@@ -168,9 +168,15 @@ public class FileUploadController {
 			entity=new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);			
 			
 		}catch(Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.info("File NAME : " +e.getMessage());
 		}finally {
-			in.close();
+			try {
+				in.close();
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+			
 		}
 		return entity;
 	}
