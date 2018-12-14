@@ -31,3 +31,4 @@ target/classes/application.properties
 
 .settings/.jsdtscope
 .mvn/wrapper/maven-wrapper.properties
+application.properties
