@@ -16,7 +16,7 @@
 <meta id="meta_og_image_width" property="og:image:width" content="1200">
 <meta id="meta_og_image_height" property="og:image:height" content="1200">
 <meta property="fb:app_id" content="964704780327708">
-<title>무료음악 스트리밍 사이트</title>
+<title>Music Streaming Site</title>
 <link rel="shortcut icon" type="image/x-icon" href="/resources/mss/images/four-leaf-clover.png">
 
 <link href="/resources/mss/css/bootstrap.css" rel="stylesheet">

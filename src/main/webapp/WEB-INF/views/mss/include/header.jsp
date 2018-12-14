@@ -22,6 +22,10 @@
 		  <a class="nav-title" href="/music/site"   style="<c:if test="${fn:contains(URL, '/music')}" >color: red; opacity: 0.5;</c:if>">음악사이트</a>
 		</li>
 		
+		<li id="navli" style="width: 100px;">
+		  <a class="nav-title" href="/audio/list"   style="<c:if test="${fn:contains(URL, '/audio')}" >color: red; opacity: 0.5;</c:if>">스트리밍 리스트</a>
+		</li>		
+		
 	</ul>
 
 	<ul id="loginUl" style="float: right; background-color: white;  margin-top: 0px; box-shadow: none; width: 350px; height: 45px">
@@ -61,11 +65,21 @@
 								style="background-color: #fff; color: #333 !important"><a
 								style="color: #333 !important" href="/login"><img
 									src="/resources/mss/images/four-leaf-clover.png">로그인<span>&gt;</span></a></li>
+									
+<li class="mobilenav"><a href="/"><img
+						src="/resources/mss/images/mobilenav-contents.png">Home<span>&gt;</span></a></li>									
 <li class="mobilenav"><a href="/recommendation/list"><img
-									src="/resources/mss/images/mobilenav-contents.png">추천할 곡을 적어 주세요!<span>&gt;</span></a></li>
-							<li class="mobilenav"><a href="/music/site"><img
-									src="/resources/mss/images/mobilenav-deck.png">음악사이트<span>&gt;</span></a></li>
-			
+						src="/resources/mss/images/mobilenav-board.png">추천할 곡을 적어 주세요!<span>&gt;</span></a></li>
+							
+							
+<li class="mobilenav"><a href="/music/site">
+<img src="/resources/mss/images/mobilenav-deck.png">음악사이트<span>&gt;</span></a>
+</li>
+	
+<li class="mobilenav"><a href="/audio/list">
+<img src="/resources/mss/images/mobilenav-kobold.png">스트리밍 리스트<span>&gt;</span></a>
+</li>	
+	
 						</ul>
 						<ul
 							style="clear: both; text-align: left; padding-left: 20px; font-size: 14px; margin-right: 20px">

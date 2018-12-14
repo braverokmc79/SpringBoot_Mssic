@@ -69,10 +69,11 @@ public class RecommendationBoardController {
 		
 		pageMaker.setTotalCount(totalCount);
 		pageMaker.setPerPageNum(25);
+		pageMaker.setDisplayPageNum(3);
 		
 		List<BoardVO> list=recommendationBoardService.getReadList(pageMaker);
 		
-		String pagination=pageMaker.bootStrapPagingSearchHTML2("/recommendation/list");
+		String pagination=pageMaker.bootStrapPagingSearchHTML4("/recommendation/list");
 		
 		model.addAttribute("pagination", pagination);
 		model.addAttribute("pageMaker", pageMaker);

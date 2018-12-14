@@ -93,7 +93,7 @@
 		
 		<c:if test="${empty list }">
 							<p style="text-align: center; margin: 50px 0 10px 0;">
-									<img class="noresult" src="/resources/mss/images/noresult.jpg">
+								<img class="noresult" src="/resources/mss/images/music_board.jpg">
 								</p>
 								<p style="text-align: center; margin: 50px 0 10px 0;">이런! 검색 결과가 없네요.</p>
 								<p style="text-align: center; margin: 10px 0 30px 0;">다른 단어로 검색해보시길 바랍니다.</p> 

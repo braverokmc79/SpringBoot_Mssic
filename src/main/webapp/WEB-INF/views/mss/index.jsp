@@ -2,146 +2,183 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+ int isMobile = 0;
+ String agent = request.getHeader("USER-AGENT");
+ String[] mobileos = {"iPhone","iPod","Android","BlackBerry","Windows CE","Nokia","Webos","Opera Mini","SonyEricsson","Opera Mobi","IEMobile"};
+ int j = -1;
+ for(int i=0 ; i<mobileos.length ; i++) {
+ 	j=agent.indexOf(mobileos[i]);
+ 	if(j > -1 ){ 	
+ 	// 모바일로 접근했을 때
+ 	 isMobile = 1;
+ 	 request.setAttribute("isMobile", isMobile);
+ 	break;
+   }
+ }
+ %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <c:import url="include/head.jsp" />
+<style type="text/css">
+ .main-v2-section{
+ 	background-color: #fff;
+ 	height: 100px;
+ }
+
+ .jumbotron{
+ 	background-color: #fff;
+ }
+ 
+ #jp_container_2{
+     background-image: url(/resources/images/music-update.gif) ;
+     background-repeat: no-repeat;
+ }
+.jp-interface{
+	background-color: #fff;
+}
+</style>
+
+
+<link href="/resources/dist/skin/pink.flag/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css" />
+<!-- <script type="text/javascript" src="/resources/lib/jquery.min.js"></script> -->
+<script type="text/javascript" src="/resources/dist/jplayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="/resources/dist/add-on/jplayer.playlist.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+
+
+	new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_2",
+		cssSelectorAncestor: "#jp_container_2"
+	}, [
+		
+	<c:forEach items="${audioList }" var="row"  varStatus="status" >
+		 {
+			title:"${row.title }",
+			mp3:"/resources/mp3/${row.fullName }"
+				
+		}	
+		<c:out  value="${   status.index < audioList.size()  ?  ',' : '' }"  />				
+	 </c:forEach>
+		
+		/* {
+			title:"Cro Magnon Man",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg"
+		},
+		{
+			title:"Your Face",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg"
+		},
+		 */
+	], {
+		swfPath: "../../dist/jplayer",
+		supplied: "oga, mp3",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+});
+//]]>
+</script>
 </head>
 <body>
 	<c:import url="include/header.jsp" />
+	<section class="header-banner"></section>
+	<section class="main-v2-boards main-v2-section">
+		<div class="container">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+	</section>
+
+
+
+
+  
+   	 
+   	<div class="row text-center">
+   	
+	  <div class="col-md-12">
+        <img src="/resources/images/rabbit.png"  class="img-responsive center-block"/>
+     </div>
+    
+     </div>		
+
+ <div class="container">
+<div id="jquery_jplayer_2" class="jp-jplayer"></div>
+<div id="jp_container_2" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-playlist" >
+		<div class="jp-gui jp-interface" style="background-color:  rgba(255,255,255,0.01 );">
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-controls-holder">
+				<div class="jp-controls">
+					<button class="jp-previous" role="button" tabindex="0">previous</button>
+					<button class="jp-play" role="button" tabindex="0">play</button>
+					<button class="jp-stop" role="button" tabindex="0">stop</button>
+					<button class="jp-next" role="button" tabindex="0">next</button>
+					<button class="jp-list" role="button" tabindex="0">list</button>
+				</div>
+				<div class="jp-progress">
+					<div class="jp-seek-bar">
+						<div class="jp-play-bar"></div>
+					</div>
+				</div>
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+					<button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-playlist" style="display: none;">
+			<ul>
+				<li>&nbsp;</li>
+			</ul>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
 
 
 
 	<section class="header-banner"></section>
-	<section class="main-header-v2 main-v2-section">
+	<section class="main-v2-boards main-v2-section">
 		<div class="container">
-			<p class="main-header-small" style="font-weight: 500;">무료음악 스트리밍
-				사이트</p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
-
+			<p>&nbsp;</p>
 		</div>
 	</section>
 
-	<div class="container">
-		<div class="column add-bottom">
-			<div id="mainwrap">
 
-			</div>
-		</div>
-		<div class="column add-bottom center">
-			<p></p>
-		</div>
-	</div>
-
-
-<div class="container">
-    <div class="column add-bottom">
-        <div id="mainwrap">
-            <div id="nowPlay">
-                <span id="npAction">Paused...</span><span id="npTitle"></span>
-            </div>
-            <div id="audiowrap">
-                <div id="audio0">
-                    <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
-                </div>
-                <div id="tracks">
-                    <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
-                </div>
-                <div>
-                	<button type="button" class="btn btn-info" onclick="plListModal()"><i class="fas fa-list-alt" style="font-size: 25px;"></i></button>
-
-                </div>
-            </div>
-            <div id="plwrap" style="display: none;">
-                <ul id="plList"></ul>
-            </div>
-        </div>
-    </div>
-    <div class="column add-bottom center">
-        <p></p>        
-    </div>
 </div>
 
 
-	<section class="main-v2-boards main-v2-section">
-		<div class="container">
-			<p class="main-section-title">추천음악 커뮤니티</p>
-			<p class="main-section-small">Recommended Music Community</p>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="main-v2-board-header">
-						<span class="main-v2-board-header-title"><a
-							href="/recommendation/list">베스트 뷰</a> </span>
-					</div>
-					<ul class="main-v2-board-list">
-						<c:forEach items="${bestViewList}" var="row">
-							<li><a href="/recommendation/read/${row.bno }"> <span
-									class="thumb" style="color: #d6d6d6"> <img
-										class="board-star-img"
-										src="/resources/mss/images/star_grey.png">&nbsp;${row.likecnt}
-								</span> <span class="board-title ellipsis">${row.title}</span><span
-									class="board-right-tip"> <span
-										class="board-list-right ellipsis logined">${row.bnickname}</span>
-										<span class="board-list-right moment"> <fmt:formatDate
-												value="${row.regdate}" pattern="yyyy-MM-dd hh:mm:ss" /></span>
-										&nbsp;<i class="item-icon fa fa-eye" style="color: #999;"></i>&nbsp;
-										<span class="board-list-right board-view"
-										style="vertical-align: middle;"> ${row.viewcnt}</span>
-								</span>
-							</a></li>
-						</c:forEach>
-					</ul>
-				</div>
-
-				<div class="col-md-6">
-					<div class="main-v2-board-header">
-						<span class="main-v2-board-header-title"> <a
-							href="/recommendation/list">베스트 코멘트</a></span>
-					</div>
-					<ul class="main-v2-board-list">
-						<c:forEach items="${bestCommentList}" var="row">
-							<li><a href="/recommendation/read/${row.bno }"> <span
-									class="thumb" style="color: #d6d6d6"> <img
-										class="board-star-img"
-										src="/resources/mss/images/star_grey.png">&nbsp;${row.likecnt}
-								</span> <span class="board-title ellipsis">${row.title}</span><span
-									class="board-right-tip"> <span
-										class="board-list-right ellipsis logined">${row.bnickname}</span>
-										<span class="board-list-right moment"><fmt:formatDate
-												value="${row.regdate}" pattern="yyyy-MM-dd hh:mm:ss" /></span>
-										&nbsp;<i class="item-icon fa fa-eye" style="color: #999;"></i>&nbsp;
-										<span class="board-list-right board-view">${row.viewcnt}</span>
-								</span>
-							</a></li>
-						</c:forEach>
-
-
-
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="main-v2-boards main-v2-section">
-		<div class="container">
-			<p>&nbsp;</p>
-			<p>&nbsp;</p>
-			<p>&nbsp;</p>
-		</div>
-	</section>
-
-
-	<c:import url="./include/nav-bottom.jsp" />
-
+	
 	<c:import url="./include/footer.jsp" />
-	<script src="/resources/mss/js/music.js"></script>
+	
 
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript">
-		function plListModal(e) {
-			$("#plwrap").toggle("slow");
-		}
 
 		dateFormat();
 		function dateFormat() {
@@ -152,7 +189,29 @@
 						.fromNow();
 			}
 		}
-	</script>
+		
+$(document).ready(function(){
+	$(".jp-list").on("click", function(e){
+		var display=$(".jp-playlist").css("display");
+		if(display=="none"){			
+			$(".jp-list").css("background", "url(/resources/dist/skin/pink.flag/image/list-y.jpg)");
+		}else{
+			$(".jp-list").css("background", "url(/resources/dist/skin/pink.flag/image/list-n.jpg)");
+		}
+		$(".jp-playlist").toggle("slow");
+
+		
+	});
+	
+	 <c:if test="${isMobile eq 1 }">
+	 $(".jp-progress").css("margin-top" , "5px");
+	$(".jp-progress").css("margin-left" , "80px");		
+	 </c:if>
+	
+});	
+
+
+</script>
 
 
 </body>

@@ -185,28 +185,34 @@ public class FileUploadController {
 	
     // 1.파일의 저장 경로(uploadPath), 2.원본 파일의 이름(originalName), 3.파일 데이터(byte[])
     public String uploadFile(String uploadPath, String originalName, byte[] fileData) throws Exception {
- 
-        // ★ 1. 고유값 생성
-        UUID uid = UUID.randomUUID();
-        String savedName = uid.toString() + "_" + originalName;
- 
-        // ★ 2. 년/월/일' 정보 생성
-        String savedPath = calcPath(uploadPath);
- 
-        // ★ 3. 원본파일 저장
-        File target = new File(uploadPath + savedPath, savedName);
-        FileCopyUtils.copy(fileData, target);
- 
-        // ★ 4. 이미지 일경우 썸네일 이미지 생성 후 url 주소로 반환
-        String formatName = originalName.substring(originalName.lastIndexOf(".") + 1);
-        String uploadedFileName = null;
- 
-        if (MediaUtils.getMediaType(formatName) != null) {
-            // 이미지일 경우 썸네일 생성 후 이미지 이름 반환 ( 경로+년월일+s_이름)
-            uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
-        } else {
-            uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
-        }
+    	  String uploadedFileName = null;
+    	try {
+            // ★ 1. 고유값 생성
+            UUID uid = UUID.randomUUID();
+            String savedName = uid.toString() + "_" + originalName;
+     
+            // ★ 2. 년/월/일' 정보 생성
+            String savedPath = calcPath(uploadPath);
+     
+            // ★ 3. 원본파일 저장
+            File target = new File(uploadPath + savedPath, savedName);
+            FileCopyUtils.copy(fileData, target);
+     
+            // ★ 4. 이미지 일경우 썸네일 이미지 생성 후 url 주소로 반환
+            String formatName = originalName.substring(originalName.lastIndexOf(".") + 1);
+          
+     
+            if (MediaUtils.getMediaType(formatName) != null) {
+                // 이미지일 경우 썸네일 생성 후 이미지 이름 반환 ( 경로+년월일+s_이름)
+                uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
+            } else {
+                uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
+            }
+    		
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+
  
         // 파일 경로를 -> url 경로로 변경해서 반환
         return uploadedFileName;

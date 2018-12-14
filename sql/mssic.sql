@@ -49,18 +49,29 @@ create table tbl_like(
 create table tbl_reply(
   rno  int not null auto_increment primary KEY,
   bno int not null,	
-  content varchar(1000),
+  r_content varchar(1000),
   userID varchar(50) ,
-  rnickname varchar(20) not null,
+  r_nickname varchar(20) not null,
   r_pw varchar(50)  null,
   r_ip varchar(50)  null,
-  rply_regdate timestamp not null default now()
+  r_regdate timestamp not null default now()
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
 
 	
 
 insert into tbl_like (bno,lip ) 
 (select bno, lip+lno  from tbl_like );
+
+
+create table tbl_audio(
+	id  int not null auto_increment primary KEY,
+	title varchar(300) ,
+	fullName varchar(250),
+	originalName varchar(250),
+	`show` varchar(10) default 'no',
+	regdate  timestamp not null default now()
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 

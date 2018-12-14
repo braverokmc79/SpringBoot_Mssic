@@ -20,7 +20,7 @@ public class PageMakerAndSearch {
    private boolean prev;  // 이전 여부 
    private boolean next;  // 다음 여부
     
-   private int displayPageNum=10;
+   private int displayPageNum=3;
     
    private int tempEndPage; //마지막 페이지
     
@@ -342,6 +342,41 @@ public void setParmaRole(String parmaRole) {
 	       return sBuffer.toString();
    }
 	    
+   //검색 추가 페이징 부트스트랩 출력
+   public String bootStrapPagingSearchHTML4(String url){
+      StringBuffer sBuffer=new StringBuffer();
+      sBuffer.append("<ul class='pagination board-paging'>");
+      if(prev){
+          sBuffer.append("<li><a style='color:#666;' href='"+url+makeSearch2(1)+"'>처음</a></li>");
+      }
+       
+      if(prev){
+          sBuffer.append("<li><a  style='color:#666;' href='"+url+makeSearch2(startPage-1)+"'>&laquo;</a></li>");
+      }
+
+       String active="";
+       for(int i=startPage; i <=endPage; i++){
+           if(page==i){
+                active="class=active";
+           }else{
+               active="";
+           }
+           sBuffer.append("<li " +active+" >");
+           sBuffer.append("<a style='color:#666;' href='"+url+makeSearch2(i)+"'>"+i+"</a></li>");
+           sBuffer.append("</li>");
+       }
+        
+       if(next && endPage>0){
+           sBuffer.append("<li><a style='color:#666;' href='"+url+makeSearch2(endPage+1)+"'>&raquo;</a></li>");         
+       }
+        
+       if(next && endPage>0){
+           sBuffer.append("<li><a  style='color:#666;'href='"+url+makeSearch2(tempEndPage)+"'>마지막</a></li>");           
+       }       
+        
+       sBuffer.append("</ul>");  
+       return sBuffer.toString();
+   }
     
 
    

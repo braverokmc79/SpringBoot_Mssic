@@ -15,7 +15,7 @@
 			style="clear: both; padding-top: 100px; text-align: center"></div>
 		<div class="container"
 			style="margin-top: -40px; max-width: 1024px; padding-bottom: 10px;">
-			<p class="main-section-title" id="music-title">Music Site</p>
+			<p class="main-section-title" id="music-title">Music Streaming Site</p>
 			<p class="main-section-small">&nbsp;</p>
 
 			<div class="row">

@@ -5,8 +5,8 @@
 
 		<div class="footer-v2">
 			<div class="container">
-				<p class="footer-v2-title">MSS.IC</p>
-				<p class="footer-v2-tips">Copyright ⓒ 2018 MSS.IC</p>
+				<p class="footer-v2-title">MSS</p>
+				<p class="footer-v2-tips">Copyright ⓒ 2018 MSS</p>
 				<p class="footer-v2-tips">
 					All Rights Reserved.</a>
 				</p>
@@ -33,8 +33,6 @@
 		<script type="text/javascript" src="/resources/mss/js/jquery.cookie.min.js"></script>			
 		<script src="/resources/mss/js/spectrum.js"></script>
 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/plyr/3.4.7/plyr.min.js'></script>
 
 
   <script>

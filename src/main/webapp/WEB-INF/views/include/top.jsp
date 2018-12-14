@@ -9,7 +9,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span> </a>
     
-    <a class="brand" href="/"><i class="icon-globe"></i>&nbsp; 메시지 중계시스템 </a>
+    <a class="brand" href="/"><i class="icon-globe"></i>&nbsp; Music Streaming Site </a>
 				<div class="nav-collapse">
 	
 

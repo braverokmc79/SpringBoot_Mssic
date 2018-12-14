@@ -14,7 +14,7 @@
     <div class="container"  id="sectionContainer">
         <div class="panel panel-warning" >
             <div class="panel-title" >
-<h3 class="signupTitle" >MSS.IC 회원가입</h3>
+<h3 class="signupTitle" >MSS 회원가입</h3>
                 <form name="signup" method="post" id="loginForm" onsubmit="return check();">
                     <table id="loginTable">
                         <tbody>
@@ -63,7 +63,7 @@ minlength="8" required aria-required="true"  placeholder="최소 8자">
                         </tr>
                         <tr>
                             <td style="padding-top:10px; text-align: center">
-                                <p>회원가입하셔서 더욱 편하게 MSS.IC을 이용하세요.</p>
+                                <p>회원가입하셔서 더욱 편하게 MSS을 이용하세요.</p>
                             </td>
                         </tr>
                         <tr>

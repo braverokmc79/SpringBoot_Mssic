@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ic.mss.model.dao.mapper.AudioMapper">
+ 
+ 	<insert id="inesrt"> 	
+		insert into tbl_audio  (title,fullName,originalName)
+			VALUES(#{title},#{fullName}, #{originalName} )		
+ 	</insert>
+
+
+	<sql id="search">
+		<if test="searchType !=null">
+			<if test="searchType == 't'.toString()">
+			and  title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+			and 
+				 (
+				 title like CONCAT('%', #{keyword}, '%')
+					OR
+			 	originalName like CONCAT('%', #{keyword}, '%')
+			   )
+			</if>			
+		</if>
+	</sql>
+	
+
+
+	<select id="audioTotalCount" resultType="int">
+	<![CDATA[
+		select count(*) from tbl_audio where id >0 
+	]]> 
+	
+		<include refid="search"></include>
+	</select>
+
+	<select id="audioList" resultType="ic.mss.model.vo.AudioVO">
+	<![CDATA[
+			select * from tbl_audio   where id >0 
+	]]>   
+		  
+		
+		<include refid="search"></include>
+	
+		<![CDATA[	 
+			order by id desc 	
+		limit #{pageStart} , #{perPageNum}
+		]]>   
+	</select>
+		
+		
+		
+	
+	<delete id="delete">
+		delete from tbl_audio where  id=#{id} 
+	</delete>
+
+
+	<update id="showChange">
+		<![CDATA[	 
+	 update tbl_audio set `show`=#{show} where id=#{id}
+		 ]]> 
+	</update>
+
+
+
+	<select id="getStreamingList" resultType="ic.mss.model.vo.AudioVO">
+		<![CDATA[	 
+		select * from tbl_audio where `show` ='yes' order by id desc
+		 ]]> 
+	</select>
+
+
+	<select id="audioGetInfo" resultType="ic.mss.model.vo.AudioVO">
+		<![CDATA[	 
+		select * from tbl_audio where id =#{id}
+		 ]]> 
+	</select>
+
+
+</mapper>
+
+
+
+
+
