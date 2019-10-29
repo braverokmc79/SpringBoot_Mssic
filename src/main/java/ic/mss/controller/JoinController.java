@@ -22,34 +22,44 @@ import ic.mss.util.config.IpAddress;
 public class JoinController {
 	private static final Logger log = LoggerFactory.getLogger(JoinController.class);
 	
+	
+	// UserService 객체를  의존성 주입시킨다.
 	@Autowired
 	private UserService userService;
 	
-	//회원 가입폼으로 이동
+	//  /join/signup 호출신 회원 가입폼으로 이동 시킨다.
 	@GetMapping("signup")
-	public String joinForm(UserVO userVO) throws Exception{		
+	public String joinForm(UserVO userVO) throws Exception{			
+		//  src/main/webapp/WEB-INF/views/mss 의 
+		// mss/signup.jsp  로 이동 처리한다.
 		return "mss/signup";
 	}
 	
-	
+	// /join/signUp url 호출로 post 방식 호출시
 	//유저 가입	
 	@PostMapping("signUp")
 	public void joinAction(UserVO userVO,  Model model, HttpServletResponse response) 
 				throws Exception{
-		//log.info("회원 가입 : {}", userVO.toString());		
+		//log.info("회원 가입 : {}", userVO.toString());
+		//ajax 로 호출 될시  처리 답변으로 PrintWriter 를 이용한다.
 		PrintWriter out=response.getWriter();
 		try{			
+			//id 주소를 가져온다.
 			userVO.setIp(IpAddress.getIP());
+			// DB에 생성 한다.
 			userService.userCreate(userVO);
+			
+			//성공시 ajax 에 SUCCESS 를 반환 시킨다.
 			out.print("SUCCESS");			
 		}catch(Exception e) {
+			// 실패시 ajax 에 fail 를 반환 시킨다.
 			out.print("fail");
 		}
 		
 	}
 	
 	
-	
+	// /join/checkUserId url 의 ajax post 방식 호출시
 	//유저 아이디 중복 체크	
 	@PostMapping("checkUserId")
 	public void checkUserId(UserVO userVO, HttpServletResponse response) throws Exception {		

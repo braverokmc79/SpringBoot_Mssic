@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 @Configuration
 public class ErrorConfiguration extends ServerProperties {
 
+	// 500, 404 에러  처리 한다.
 	@Override
 	public void customize(ConfigurableEmbeddedServletContainer container) {
 		super.customize(container);

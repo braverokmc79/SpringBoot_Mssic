@@ -4,17 +4,17 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<c:import url="include/head.jsp" />
+<%@ include file="include/head.jsp" %>
 </head>
 <body>
-	<c:import url="include/header.jsp" />
-
+	
+<%@ include file="include/header.jsp" %>
 
 <section>
     <div class="container"  id="sectionContainer">
         <div class="panel panel-warning" >
             <div class="panel-title" >
-<h3 class="signupTitle" >MSS 회원가입</h3>
+<h3 class="signupTitle" >MSSIC 회원가입</h3>
                 <form name="signup" method="post" id="loginForm" onsubmit="return check();">
                     <table id="loginTable">
                         <tbody>
@@ -74,7 +74,7 @@ style=" background-color:#64DD17; border:0px solid #388E3C;">
                         </tr>
                         <tr>
                             <td class="joinTd">
-                                <a href="/login">
+                                <a href="${HOME}/login">
  <input value="로그인" id="signupBtn2" class="button form-control tooltipstered"
 style="background-color:#f78f24; border:0px solid #f78f24; "></a>
                             </td>
@@ -116,7 +116,7 @@ $('#userID').on('keyup', function() {
 	    data:{
 	    	userID: userID.val()
 	    },
-        url: "/join/checkUserId",
+        url: "${HOME}/join/checkUserId",
         success: function (result) {
         	var d=parseInt($.trim(result));
         	if (d == 0) {
@@ -157,7 +157,7 @@ $('#nickname').on('keyup', function() {
 	    data:{
 	    	nickname:nickname.val()
 	    },
-        url: "/join/checkUserNickname",
+        url: "${HOME}/join/checkUserNickname",
         success: function (result) {
         	var d=parseInt($.trim(result));
         	
@@ -250,7 +250,7 @@ function check() {
 					$.ajax({
 						type: "POST",
 					    dataType: "text",
-				        url: "/join/signUp",
+				        url: "${HOME}/join/signUp",
 				        data: {
 					        userID: userID.val(),
 					        nickname: $('#nickname').val(),
@@ -261,7 +261,7 @@ function check() {
 				        	// 환영 페이지 이동 				        	
 				        	if ($.trim(d)== "SUCCESS"){
 				        		alert("회원 가입을 축하합니다.");
-					        	location.href = "/login";				        		
+					        	location.href = "${HOME}/login";				        		
 				        	}else{
 				        		alert(d);
 				        	} 					        	
@@ -278,9 +278,9 @@ function check() {
 </script>       
  </section>
 
-	<c:import url="./include/nav-bottom.jsp" />
 
-	<c:import url="./include/footer.jsp" />
 
+<%@ include file="./include/nav-bottom.jsp" %>
+<%@ include file="./include/footer.jsp" %>
 </body>
 </html>

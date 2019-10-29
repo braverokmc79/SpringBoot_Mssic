@@ -20,7 +20,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<c:import url="include/head.jsp" />
+<%@ include file="include/head.jsp" %>
+
 <style type="text/css">
  .main-v2-section{
  	background-color: #fff;
@@ -32,7 +33,7 @@
  }
  
  #jp_container_2{
-     background-image: url(/resources/images/music-update.gif) ;
+     background-image: url(${HOME}/resources/images/music-update.gif) ;
      background-repeat: no-repeat;
  }
 .jp-interface{
@@ -41,10 +42,10 @@
 </style>
 
 
-<link href="/resources/dist/skin/pink.flag/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css" />
-<!-- <script type="text/javascript" src="/resources/lib/jquery.min.js"></script> -->
-<script type="text/javascript" src="/resources/dist/jplayer/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="/resources/dist/add-on/jplayer.playlist.min.js"></script>
+<link href="${HOME}/resources/dist/skin/pink.flag/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css" />
+<!-- <script type="text/javascript" src="${HOME}/resources/lib/jquery.min.js"></script> -->
+<script type="text/javascript" src="${HOME}/resources/dist/jplayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="${HOME}/resources/dist/add-on/jplayer.playlist.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready(function(){
@@ -58,23 +59,12 @@ $(document).ready(function(){
 	<c:forEach items="${audioList }" var="row"  varStatus="status" >
 		 {
 			title:"${row.title }",
-			mp3:"/resources/mp3/${row.fullName }"
+			mp3:"${HOME}/resources/mp3/${row.fullName }"
 				
 		}	
 		<c:out  value="${   status.index < audioList.size()  ?  ',' : '' }"  />				
 	 </c:forEach>
 		
-		/* {
-			title:"Cro Magnon Man",
-			mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-			oga:"http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg"
-		},
-		{
-			title:"Your Face",
-			mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
-			oga:"http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg"
-		},
-		 */
 	], {
 		swfPath: "../../dist/jplayer",
 		supplied: "oga, mp3",
@@ -89,7 +79,8 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<c:import url="include/header.jsp" />
+
+	<%@ include file="include/header.jsp" %>
 	<section class="header-banner"></section>
 	<section class="main-v2-boards main-v2-section">
 		<div class="container">
@@ -107,7 +98,7 @@ $(document).ready(function(){
    	<div class="row text-center">
    	
 	  <div class="col-md-12">
-        <img src="/resources/images/rabbit.png"  class="img-responsive center-block"/>
+        <img src="${HOME}/resources/images/rabbit.png"  class="img-responsive center-block"/>
      </div>
     
      </div>		
@@ -171,11 +162,8 @@ $(document).ready(function(){
 
 </div>
 
-
 	
-	<c:import url="./include/footer.jsp" />
-	
-
+	<%@ include file="./include/footer.jsp" %>
 	
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript">
@@ -194,9 +182,9 @@ $(document).ready(function(){
 	$(".jp-list").on("click", function(e){
 		var display=$(".jp-playlist").css("display");
 		if(display=="none"){			
-			$(".jp-list").css("background", "url(/resources/dist/skin/pink.flag/image/list-y.jpg)");
+			$(".jp-list").css("background", "url(${HOME}/resources/dist/skin/pink.flag/image/list-y.jpg)");
 		}else{
-			$(".jp-list").css("background", "url(/resources/dist/skin/pink.flag/image/list-n.jpg)");
+			$(".jp-list").css("background", "url(${HOME}/resources/dist/skin/pink.flag/image/list-n.jpg)");
 		}
 		$(".jp-playlist").toggle("slow");
 

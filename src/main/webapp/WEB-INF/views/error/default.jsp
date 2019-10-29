@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <c:import url="../include/header.jsp"/>
- <c:import url="../include/errorCss.jsp"/>
+ <%@ include file="../include/header.jsp" %>
+ <%@ include file="../include/errorCss.jsp" %>
 </head>
 <body>
 

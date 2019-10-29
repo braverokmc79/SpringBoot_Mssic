@@ -4,11 +4,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<c:import url="include/head.jsp" />
+<%@ include file="include/head.jsp" %>
 </head>
 <body>
-	<c:import url="include/header.jsp" />
-
+	<%@ include file="include/header.jsp" %>
 
 	<section>
 		<div class="container"
@@ -22,7 +21,7 @@
 				<div class="col-md-6">
 					<a href="https://www.melon.com/">
 							<div class="main-post-card">
-							 <img src="/resources/mss/images/melon.png"   class="img-fluid img-thumbnail"/>
+							 <img src="${HOME}/resources/mss/images/melon.png"   class="img-fluid img-thumbnail"/>
 					<p class="main-post-card-title ellipse text-center" >음악이 필요한 순간, 멜론</p>
 					<p>&nbsp;</p>
 							</div>						
@@ -32,7 +31,7 @@
 				<div class="col-md-6">
 					<a href="https://genie.co.kr/">
 							<div class="main-post-card">
-							 <img src="/resources/mss/images/gini.png"   class="img-fluid img-thumbnail"/>
+							 <img src="${HOME}/resources/mss/images/gini.png"   class="img-fluid img-thumbnail"/>
 					<p class="main-post-card-title ellipse text-center" >음악, 그리고 설레임 - 지니</p>
 					<p>&nbsp;</p>
 							</div>						
@@ -42,7 +41,7 @@
 								<div class="col-md-6">
 					<a href="https://music.naver.com/">
 							<div class="main-post-card">
-							 <img src="/resources/mss/images/naverlogo.png"   class="img-fluid img-thumbnail"/>
+							 <img src="${HOME}/resources/mss/images/naverlogo.png"   class="img-fluid img-thumbnail"/>
 					<p class="main-post-card-title ellipse text-center" >네이버 뮤직</p>
 					<p>&nbsp;</p>
 							</div>						
@@ -52,7 +51,7 @@
 								<div class="col-md-6">
 					<a href="https://music.bugs.co.kr/">
 							<div class="main-post-card">
-							 <img src="/resources/mss/images/bugs.png"   class="img-fluid img-thumbnail"/>
+							 <img src="${HOME}/resources/mss/images/bugs.png"   class="img-fluid img-thumbnail"/>
 					<p class="main-post-card-title ellipse text-center" >슈퍼사운드 벅스 뮤직</p>
 					<p>&nbsp;</p>
 							</div>						
@@ -63,7 +62,7 @@
 				<div class="col-md-6">
 					<a href="http://www.mnet.com/newrelease/track/Kpop/all">
 							<div class="main-post-card">
-							 <img src="/resources/mss/images/mnet.png"   class="img-fluid img-thumbnail"/>
+							 <img src="${HOME}/resources/mss/images/mnet.png"   class="img-fluid img-thumbnail"/>
 					<p class="main-post-card-title ellipse text-center" >가요 최신곡 - 엠넷 최신음악</p>
 					<p>&nbsp;</p>
 							</div>						
@@ -81,8 +80,9 @@
 	</section>
 
 
-	<c:import url="./include/nav-bottom.jsp" />
-	<c:import url="./include/footer.jsp" />
+	
+	<%@ include file="./include/nav-bottom.jsp" %>
+	<%@ include file="./include/footer.jsp" %>
 
 </body>
 </html>

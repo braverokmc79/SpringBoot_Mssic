@@ -2,22 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ic.mss.model.dao.mapper.UserMapper">
 
+	<!-- mybatis  아이디 중복 체크 로 해당 아이디값의 정보를 불러오는  sql 문 -->
 	 <select id="userGet" resultType="int">
 	  	select count(*) from tbl_user where userID=#{userID}
 	 </select>
 	
 	 
+	 <!-- mybatis  -	닉네임 중복 체크 로 해당 닉네임을 정보를 불러오는  sql 문 -->
 	 <select id="userGetNickname" resultType="int">
 	  	select count(*) from tbl_user where nickname=#{nickname}
 	 </select>
 	
-	
+	<!-- mybatis  - 유저 가입 생성 sql 문 -->
 	<insert id="userCreate">	
 		insert into tbl_user  (userID, nickname, pw, ip) 
 			VALUES ( #{userID}, #{nickname} , #{pw},#{ip})	
 	</insert>
 	
 	
+	<!-- mybatis  -	유저 로그인 처리에 사용되는 sql 문 -->
 	<select id="userLoginIdPw" resultType="ic.mss.model.vo.UserVO">
 	
 	select * from tbl_user where userID=#{userID} and pw=#{pw}

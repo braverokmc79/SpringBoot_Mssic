@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<c:import url="../include/head2.jsp" />
+<%@ include file="../include/head2.jsp" %>
 <style type="text/css">
 #form1{
 	padding-left:20px; 
@@ -31,7 +31,8 @@
 </style>
 </head>
 <body>
-	<c:import url="../include/header.jsp" />
+	
+<%@ include file="../include/header.jsp" %>
 
         <section>
             <div class="container" style="padding-top:120px; max-width:1024px; padding-bottom:20px;">
@@ -42,7 +43,7 @@
                     <div class="container boardWriteForm" style="width:100%;">	
 						
 <form:form commandName="boardVO" name="form1" id="form1" 
-	action="/recommendation/write" enctype="multipart/form-data" method="post"   >
+	action="${HOME}/recommendation/write" enctype="multipart/form-data" method="post"   >
 							
 							<p></p>
 <p>
@@ -112,7 +113,7 @@ name="title"  placeholder="제목을 입력해주세요 (최대 50자)" />
 			data.append("file", file);
 			console.log('image upload:', file);
 			$.ajax({
-				url: "/summernote/upload",
+				url: "${HOME}/summernote/upload",
 				data: data,
 				cache: false,
 				contentType: false,
@@ -134,9 +135,10 @@ name="title"  placeholder="제목을 입력해주세요 (최대 50자)" />
 </script>        </section>
 
 
-	<c:import url="../include/nav-bottom.jsp" />
-	<c:import url="../include/footer.jsp" />
-	 <script src="/resources/mss/js/summernote-ko-KR.js"></script>   
+
+	<%@ include file="../include/nav-bottom.jsp" %>
+	<%@ include file="../include/footer.jsp" %>
+	 <script src="${HOME}/resources/mss/js/summernote-ko-KR.js"></script>   
 
 </body>
 </html>

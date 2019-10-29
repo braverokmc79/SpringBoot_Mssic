@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<c:import url="../include/head2.jsp" />
+<%@ include file="../include/head2.jsp" %>
 </head>
 <body>
-	<c:import url="../include/header.jsp" />
 
+<%@ include file="../include/header.jsp" %>
 
 	<section>
 		<div class="container"
@@ -17,11 +17,11 @@
 				<li><a class="clicked" href="#">&nbsp;</a></li>
 			</ul>
 			<ul class="board-right-tab">
-				<li><a class="button right-board" href="/recommendation/write">글쓰기</a></li>
+				<li><a class="button right-board" href="${HOME}/recommendation/write">글쓰기</a></li>
 			</ul>
 
 
-			<form action="/recommendation/update"   action="/recommendation/write"  method="post"  >
+			<form action="${HOME}/recommendation/update"   action="${HOME}/recommendation/write"  method="post"  >
 			
 <input type="hidden" value="${boardVO.bno}" name="bno">
 <input type="hidden" name="imgcnt" id="imgcnt" />
@@ -40,7 +40,7 @@
 					</h4>
 					<p>
 						<span>
-<img class="board-star-img" src="/resources/mss/images/star_grey.png">${boardVO.likecnt}</span><span>조회 ${boardVO.viewcnt}</span>
+<img class="board-star-img" src="${HOME}/resources/mss/images/star_grey.png">${boardVO.likecnt}</span><span>조회 ${boardVO.viewcnt}</span>
 				</div>
 				<div class="board-view-body">
 					<textarea id="summernote" name="content">${boardVO.content}</textarea>
@@ -79,7 +79,7 @@
 								data.append("file", file);
 								console.log('image upload:', file);
 								$.ajax({
-									url : "/summernote/upload",
+									url : "${HOME}/summernote/upload",
 									data : data,
 									cache : false,
 									contentType : false,
@@ -120,8 +120,9 @@
 	</section>
 
 
-	<c:import url="../include/nav-bottom.jsp" />
-	<c:import url="../include/footer.jsp" />
-	<script src="/resources/mss/js/summernote-ko-KR.js"></script>
+
+	<%@ include file="../include/nav-bottom.jsp" %>
+	<%@ include file="../include/footer.jsp" %>
+	<script src="${HOME}/resources/mss/js/summernote-ko-KR.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class IpAddress {
 
-	
+	// 접속자 아이피를 가져온다
 	public static String getIP() {
 		 HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 	     String ip = req.getHeader("X-FORWARDED-FOR");

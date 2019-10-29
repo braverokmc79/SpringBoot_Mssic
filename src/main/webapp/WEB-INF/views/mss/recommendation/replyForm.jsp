@@ -8,7 +8,7 @@
 <div id="boardComment" class="panel-footer board board-view-comment" >
           <h5 style="margin-bottom:0">댓글</h5>
        
-       <form action="/recommendation/replies/create" method="post" id="boardCommentForm" >
+       <form action="${HOME}/recommendation/replies/create" method="post" id="boardCommentForm" >
 
 
               <p>
@@ -37,7 +37,7 @@ name="rPw" type="password"  placeholder="비밀번호 (4자)"  ></p>
  <div id="boardComment" class="panel-footer board board-view-comment">
        <h5 style="margin-bottom:0">댓글</h5>  
                      
-       <form action="/recommendation/replies/create" method="post" id="boardCommentForm">
+       <form action="${HOME}/recommendation/replies/create" method="post" id="boardCommentForm">
   
        <p><input id="submitbtn" class="form-control tooltipstered" minlength="1" maxlength="500" required
        aria-required="true"

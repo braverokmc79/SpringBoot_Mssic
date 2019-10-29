@@ -21,13 +21,17 @@ public class LoginController {
 
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 
+	// UserService 객체를 의존성 주입시킨다.
 	@Autowired
 	private UserService userService;
 	
-	
+	//get 방식으로  /login url 호출시 처리
 	@GetMapping("/login")
 	public String loginform() 
 			throws Exception{
+		
+		//  src/main/webapp/WEB-INF/views/mss 의 
+		// mss/login.jsp  로 이동 처리한다.
 		return  "mss/login";
 	}
 	

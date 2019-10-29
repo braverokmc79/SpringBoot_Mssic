@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ic.mss.model.dao.mapper.RecommendationBoardMapper">
-
+	
+	<!-- mybatis  -	등록 처리  sql 문 -->
 	<insert id="register">
 	insert into tbl_board  (title, content, bnickname, userID, imgcnt,  pw,    ip ) 
 					VALUES (#{title},  #{content}, #{bnickname},   #{userID} ,  #{imgcnt},  #{pw},   #{ip})		  
 	</insert>
 	
 	
+	<!-- mybatis  -	상세정보  sql 문 -->
 	<select id="getRead" resultType="ic.mss.model.vo.BoardVO">	 
 		select a.*,
 		
@@ -22,6 +24,7 @@
 	 
 	</select>
 	
+	<!-- mybatis  -	 검색 조건  sql 문 -->
 	<sql id="search">
 		<if test="searchType !=null">
 			<if test="searchType == 't'.toString()">
@@ -39,7 +42,7 @@
 	</sql>
 	
 	
-	
+	<!-- mybatis  -	 목록 처리 sql 문 -->
 	<select id="getReadList" resultType="ic.mss.model.vo.BoardVO">
 		<![CDATA[
 		select 
@@ -66,7 +69,7 @@
 		]]> 
 	</select>
 	
-	
+	<!-- mybatis  -	전체 게시판 갯수를 가져오는 처리  sql 문 -->
 	<select id="boardTotalCount" resultType="int">
 		<![CDATA[	 
 		select count(*) from tbl_board as a where bno >0 
@@ -76,12 +79,12 @@
 	</select>
 	
 	
-	
+	<!-- mybatis  -	삭제 처리 sql 문 -->
 	<delete id="remove">
 		delete from tbl_board where bno=#{bno}
 	</delete>
 	
-	
+	<!-- mybatis  -	업데이트 처리 sql 문 -->
 	<update id="boardUpdate">	
         update tbl_board SET   			
   			title = #{title}
@@ -91,17 +94,18 @@
 	</update>
 	
 	
+	<!-- mybatis  -	 비밀번호 확인 처리 sql 문 -->
 	<select id="passwordConfirm" resultType="int">
 		select count(*) from tbl_board where bno=#{bno} and pw=#{pw}
 	</select>
 
 	
-
+	<!-- mybatis  -	조회수 증가 처리 sql 문 -->
 	<update id="viewcntAdd">
 		update tbl_board set viewcnt=viewcnt+1 where bno=#{bno}
 	</update>
 	
-	
+	<!-- mybatis  -	 목록 처리 sql 문 -->
 	<select id="getReadLikeList" resultType="ic.mss.model.vo.BoardVO">
 	<![CDATA[	
 		select * from
@@ -133,6 +137,8 @@
 		</select>
 		
 		
+		
+		<!-- mybatis  - 조회수가 높은것 5 개 목록을 가져오는 처리	 sql 문 -->
 		<select id="bestViewList" resultType="ic.mss.model.vo.BoardVO">
 		<![CDATA[	
 		
@@ -165,6 +171,8 @@
 		</select>
 		
 
+
+		<!-- mybatis  - 댓글수가 높은것 5개 목록을 가져오는 처리	 sql 문 -->
 		<select id="bestCommentList" resultType="ic.mss.model.vo.BoardVO">
 		<![CDATA[	
 		

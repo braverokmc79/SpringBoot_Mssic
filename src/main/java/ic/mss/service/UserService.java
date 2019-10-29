@@ -3,6 +3,7 @@ package ic.mss.service;
 import ic.mss.model.vo.UserVO;
 
 
+//interface 의 UserService 부모 객체로   상속 시켜 준다
 public interface UserService {
 
 	//아이디 중복 체크

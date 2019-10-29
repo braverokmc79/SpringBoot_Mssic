@@ -2,12 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ic.mss.model.dao.mapper.AudioMapper">
  
+  	<!-- mybatis  - 등록 sql 문 -->
  	<insert id="inesrt"> 	
 		insert into tbl_audio  (title,fullName,originalName)
 			VALUES(#{title},#{fullName}, #{originalName} )		
  	</insert>
 
-
+	<!-- mybatis  - 검색  조거문 처리  sql 문 -->
 	<sql id="search">
 		<if test="searchType !=null">
 			<if test="searchType == 't'.toString()">
@@ -25,7 +26,7 @@
 	</sql>
 	
 
-
+	<!-- mybatis  - 전체 개수 sql 문    반환 값 이 int 이다 -->
 	<select id="audioTotalCount" resultType="int">
 	<![CDATA[
 		select count(*) from tbl_audio where id >0 
@@ -34,6 +35,7 @@
 		<include refid="search"></include>
 	</select>
 
+	<!-- mybatis  - 목록 처리 sql 문이다. 반환 값이 ic.mss.model.vo.AudioVO 객체이다  -->
 	<select id="audioList" resultType="ic.mss.model.vo.AudioVO">
 	<![CDATA[
 			select * from tbl_audio   where id >0 
@@ -50,12 +52,12 @@
 		
 		
 		
-	
+	<!-- mybatis  -	삭체 처리 sql 문 -->
 	<delete id="delete">
 		delete from tbl_audio where  id=#{id} 
 	</delete>
 
-
+	<!-- mybatis  -	스트리밍 여부  기본값 no  yes 면  스트리밍  sql 문 -->
 	<update id="showChange">
 		<![CDATA[	 
 	 update tbl_audio set `show`=#{show} where id=#{id}
@@ -63,14 +65,14 @@
 	</update>
 
 
-
+	<!-- mybatis  -	show 컬럼에서 yes 만 가져오는  sql 문 -->
 	<select id="getStreamingList" resultType="ic.mss.model.vo.AudioVO">
 		<![CDATA[	 
 		select * from tbl_audio where `show` ='yes' order by id desc
 		 ]]> 
 	</select>
 
-
+	<!-- mybatis  -해당  id 의 정보를 가져 오는	 sql 문 -->
 	<select id="audioGetInfo" resultType="ic.mss.model.vo.AudioVO">
 		<![CDATA[	 
 		select * from tbl_audio where id =#{id}

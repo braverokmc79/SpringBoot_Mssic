@@ -5,6 +5,7 @@ import java.util.List;
 import ic.mss.model.vo.BoardVO;
 import ic.mss.util.config.PageMakerAndSearch;
 
+//interface 의 RecommendationBoardService 부모 객체로   상속 시켜 준다
 public interface RecommendationBoardService {
 
 	//등록
@@ -26,11 +27,11 @@ public interface RecommendationBoardService {
 	
 	//조회수 증가
 	public void viewcntAdd(BoardVO boardVO) throws Exception;
-	
+	//읽기 상세보기의 목록 처리
 	public List<BoardVO> getReadLikeList() throws Exception;
-	
+	//조회수가 높은것 5 개 목록 가져오기
 	public List<BoardVO> bestViewList() throws Exception;
-	
+	//글수가 높은것 5개 목록을 가져오
 	public List<BoardVO> bestCommentList() throws Exception;
 	
 	

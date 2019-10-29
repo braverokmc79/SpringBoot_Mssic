@@ -53,10 +53,9 @@ public class FileUploadController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 	 
+	//썸네일  생성시 가로이미지 크기이다
 	private static final Integer WIDTH_SIZE = 100;
-	
 
-	
 	
 	public static String getFileExtension(String string) {
 	    if (string == null) {

@@ -1,17 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:if test="${USER.userID != 'admin' }">
-<script>
-	alert("관리자만 접근 가능합니다.");
-	location.href="/";
-</script>
-</c:if>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<c:import url="../include/head.jsp" />
+<%@ include file="../include/head.jsp" %>
 <style type="text/css">
 .label{
 	border: 0px; 
@@ -22,17 +15,24 @@
 	background-color: #f78f24;
 }
 </style>
+
+<c:if test="${USER.userID != 'admin' }">
+<script>
+	alert("관리자만 접근 가능합니다.");
+	location.href="${HOME}/";
+</script>
+</c:if>
+
 </head>
 <body>
-	<c:import url="../include/header.jsp" />
-
+<%@ include file="../include/header.jsp" %>
 <section>
             <div class="container board-container" style="padding-top:80px; max-width:1024px;">
             	<ul class="board-left-tab" style="visibility: hidden;" >
             		<li ><a class="clicked" href="#">&nbsp;</a></li>       
             	</ul>
             	<ul class="board-right-tab">
-            		<li><a class="button right-board" href="/audio/write">글쓰기</a></li>
+            		<li><a class="button right-board" href="${HOME}/audio/write">글쓰기</a></li>
             	</ul>
             	<ul class="board-list">
 
@@ -43,13 +43,10 @@
 				<li style="font-size: 14px;">
 					<a href="#">
 					<span class="board-title ellipsis">${row.title}</span>
-
-					
 					<span class="board-right-tip">
 					<span class="board-list-right ellipsis">${row.originalName}</span>	
-          			
-          			
-          			<span class="board-list-right"><fmt:formatDate value="${row.regdate}"  pattern="MM-dd"/></span>
+          			<span class="board-list-right">
+          			<fmt:formatDate value="${row.regdate}"  pattern="MM-dd"/></span>
 					<span class="board-list-right board-view">
 					<c:choose>
 						<c:when test="${row.show eq 'no'}">
@@ -69,19 +66,18 @@
 			</c:forEach>            	
 		
 		<c:if test="${empty list }">
-							<p style="text-align: center; margin: 50px 0 10px 0;">
-								<img class="noresult" src="/resources/mss/images/music_board.jpg">
-								</p>
-								<p style="text-align: center; margin: 50px 0 10px 0;">이런! 검색 결과가 없네요.</p>
-								<p style="text-align: center; margin: 10px 0 30px 0;">다른 단어로 검색해보시길 바랍니다.</p> 
-		
-			</c:if>			            	
+			<p style="text-align: center; margin: 50px 0 10px 0;">
+			<img class="noresult" src="${HOME}/resources/mss/images/music_board.jpg">
+			</p>
+			<p style="text-align: center; margin: 50px 0 10px 0;">이런! 검색 결과가 없네요.</p>
+			<p style="text-align: center; margin: 10px 0 30px 0;">다른 단어로 검색해보시길 바랍니다.</p> 		
+	 </c:if>			            	
 			            		
 	            	</ul>
         
         
                  ${pagination }
-			<form method="get" action="/audio/list">
+			<form method="get" action="${HOME}/audio/list">
                 <ul class="board-search">                	
             		<li>
 	            		<select name="searchType" id="board-search-select">
@@ -107,15 +103,15 @@
 
 
 
-	<c:import url="../include/nav-bottom.jsp" />
-	<c:import url="../include/footer.jsp" />
+	<%@ include file="../include/nav-bottom.jsp" %>
+	<%@ include file="../include/footer.jsp" %>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script>
 
 function streaming(show, id){
  	
 	$.ajax({
-		url:"/audio/showchange",
+		url:"${HOME}/audio/showchange",
 		type:"post",
 		dataType:"text",
 		data:{
@@ -124,16 +120,7 @@ function streaming(show, id){
 		},
 		success:function(result){
 			if($.trim(result)=='success'){
-				//alert("설정이 변경 되었습니다.");
 				location.reload();
-/* 				if(show=='no'){
-					$("#"+id).attr("class", "label label-primary");
-					$("#"+id).text("스트리밍");
-				}else{
-					$("#"+id).attr("class", "label label-danger");
-					$("#"+id).text("대기");
-				} */
-				
 				return;
 			}
 		},
@@ -148,7 +135,7 @@ function streaming(show, id){
 function deleteAudio( id){
  	if(confirm("정말 삭제 하시겠습니까?")){
  		$.ajax({
- 			url:"/audio/deleteAudio",
+ 			url:"${HOME}/audio/deleteAudio",
  			type:"post",
  			dataType:"text",
  			data:{

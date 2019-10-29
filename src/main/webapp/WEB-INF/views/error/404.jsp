@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <c:import url="../include/header.jsp"/>
- <c:import url="../include/errorCss.jsp"/>
+ <%@ include file="../include/header.jsp" %>
+ <%@ include file="../include/errorCss.jsp" %>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
             <hr>
             <div class='_1'>THE PAGE</div>
             <div class='_2'>페이지를 찾을 수 없습니다.</div>
-            <a class='btn' href='/'>HOME</a>
+            <a class='btn' href='${HOME}/'>HOME</a>
         </div>
 
 

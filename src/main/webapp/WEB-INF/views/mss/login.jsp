@@ -3,17 +3,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<c:import url="include/head.jsp" />
+<%@ include file="include/head.jsp" %>
 </head>
 <body>
-	<c:import url="include/header.jsp" />
-
+	<%@ include file="include/header.jsp" %>
 
 	<section>
 		<div class="container" id="sectionContainer">			
 			<div class="panel panel-warning">
 				<div class="panel-title" >
-	<h3 class="signupTitle"	>MSS 로그인</h3>						
+	<h3 class="signupTitle"	>MSSIC 로그인</h3>						
 					<form name="signup" method="post"  id="loginForm" onsubmit="return check();">						
 						<table id="loginTable">							
 							<tbody>
@@ -25,7 +24,7 @@
 								<tr>
 									<td>
 <input check="1" id="userID" type="text" name="userID" class="form-control tooltipstered" minlength="1"
-										maxlength="10" required aria-required="true" placeholder="최대 10자">																				
+										maxlength="10" required aria-required="true" placeholder="최대 10자" value="admin">																				
 									</td>
 								</tr>
 								<tr>
@@ -37,12 +36,12 @@
 									<td><input id="pw" type="password" size="17" 
 										maxlength="20" name="pw" class="form-control tooltipstered"
 										minlength="1" required aria-required="true"										
-										placeholder="최소 8자">
+										placeholder="최소 8자" value="11111111" autocomplete="false" >
 									</td>
 								</tr>
 								<tr>
 									<td style="padding-top: 10px; text-align: center">
-										<p>로그인하셔서 더욱 편하게 MSS 을 이용하세요.</p>
+										<p>로그인하셔서 더욱 편하게 MSSIC 을 이용하세요.</p>
 									</td>
 								</tr>
 								<tr>
@@ -54,7 +53,7 @@
 								</tr>
 								<tr>
 									<td class="joinTd">										
-					<a href="/join/signup">
+					<a href="${HOME}/join/signup">
 					<input value="회원가입" id="signupBtn2" class="button form-control tooltipstered"></a>
 									</td>
 								</tr>
@@ -78,7 +77,7 @@
 				$.ajax({
 							type : "POST",
 							dataType : "text",
-							url : "/login/",
+							url : "${HOME}/login/",
 							data : {
 								userID : userID.val(),
 								pw : pw.val()
@@ -101,7 +100,7 @@
 									return;
 								}else if(d==10){
 									//alert("로그인 성공");									
-									location.href = "/";
+									location.href = "${HOME}/";
 									
 								}else{
 									alert("로그인 할 수 없습니다.");
@@ -115,8 +114,10 @@
 	</section>
 
 
-	<c:import url="./include/nav-bottom.jsp" />
-	<c:import url="./include/footer.jsp" />
+
+<%@ include file="./include/nav-bottom.jsp" %>
+<%@ include file="./include/footer.jsp" %>
+
 
 </body>
 </html>

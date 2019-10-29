@@ -9,7 +9,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span> </a>
     
-    <a class="brand" href="/"><i class="icon-globe"></i>&nbsp; Music Streaming Site </a>
+    <a class="brand" href="${HOME}/"><i class="icon-globe"></i>&nbsp; Music Streaming Site </a>
 				<div class="nav-collapse">
 	
 
@@ -26,7 +26,7 @@
 				</a>
 					<ul class="dropdown-menu">								
 					<li style="display:table; margin: auto;height:20px;">
-						<a href="/logout" style="height: 100%;">로그아웃</a>
+						<a href="${HOME}/logout" style="height: 100%;">로그아웃</a>
 					</li>					
 					</ul>					
 				</li>  	 

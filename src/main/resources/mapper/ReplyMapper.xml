@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ic.mss.model.dao.mapper.ReplyMapper">
-
+	
+	<!-- 데이터베이스 테이블 컬럼명과 자바필드 명을 매칭 시켜준다 -->
  	<resultMap id="replyMAP" type="ic.mss.model.vo.ReplyVO">
  		<result property="rno" column="rno" />
 		<result property="bno" column="bno" />		
@@ -16,30 +17,37 @@
 	</resultMap>
  
 
+	<!-- mybatis  -	등록 처리  sql 문 -->
 	<insert id="createBoard">
 		INSERT into tbl_reply (bno, r_content,userID ,r_nickname ,r_pw ,r_ip ) 			  			  
 		VALUES (#{bno} , #{content} ,#{userID} ,#{rnickname} ,#{rpw} ,#{rip} )
 	</insert>
 
+	<!-- mybatis  -	 목록 처리 sql 문 -->
 	<select id="listAllReplyVO" resultMap="replyMAP">
 		select * from 	tbl_reply where bno=#{bno} order by rno asc
 	</select>
 
 
-
+	<!-- mybatis  -	한개의 정보 불러오기 처리 sql 문 -->
 	<select id="getRnoInfo" resultMap="replyMAP">
 	select * from 	tbl_reply where rno=#{rno} 
 	</select>
 	
+	
+	<!-- mybatis  -	삭제 처리  sql 문 -->
 	<delete id="deleteBoard">
 	 delete from tbl_reply where rno=#{rno} 
 	</delete>
 	
 	
+	<!-- mybatis  -	비밀번호 확인 처리   없으면 0 존재 하면 1  sql 문 -->
 	<select id="getPasowrdConfirm" resultType="int">
 	  select count(*) from tbl_reply where rno=#{rno} and r_pw=#{rpw}
 	</select>
 	
+	
+	<!-- mybatis  -비밀번호 와 tbl_reply 의 아이번호를 확인 후 삭제 처리	 sql 문 -->
 	<delete id="removePassowrd">
 	 delete from tbl_reply where rno=#{rno} and r_pw=#{rpw}
 	</delete>

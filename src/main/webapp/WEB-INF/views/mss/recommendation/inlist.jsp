@@ -5,13 +5,13 @@
             	<ul class="board-list">
         <c:forEach  items="${likeList }" var="row">
 		                <li style="background-color: #f6f6f6; font-size: 14px;">
-		        <a href="/recommendation/read/${row.bno}">
+		        <a href="${HOME}/recommendation/read/${row.bno}">
 		        <span class="thumb" style="color: #ffd305; font-weight:600">
-				<img class="board-star-img" src="/resources/mss/images/star.png">&nbsp;${row.likecnt}</span>
+				<img class="board-star-img" src="${HOME}/resources/mss/images/star.png">&nbsp;${row.likecnt}</span>
 				
 				<c:if test="${row.imgcnt>0 }">					
 				<span class="board-img">
-		           <img src="/resources/mss/images/imgnotnull.png" style="width:16px; height:16px; margin-top: 4px;">
+		           <img src="${HOME}/resources/mss/images/imgnotnull.png" style="width:16px; height:16px; margin-top: 4px;">
 		        </span>
 		        </c:if>
 				
@@ -43,13 +43,13 @@
 			
 			<c:forEach items="${list }" var="row">            	
 				<li style="font-size: 14px;">
-					<a href="/recommendation/read/${row.bno}">
+					<a href="${HOME}/recommendation/read/${row.bno}">
 					<span class="thumb" style="color: #d6d6d6">
-					<img class="board-star-img" src="/resources/mss/images/star_grey.png">&nbsp;${row.likecnt}</span>
+					<img class="board-star-img" src="${HOME}/resources/mss/images/star_grey.png">&nbsp;${row.likecnt}</span>
 					
 					<c:if test="${row.imgcnt>0 }">					
 					<span class="board-img">
-			           <img src="/resources/mss/images/imgnotnull.png" style="width:16px; height:16px; margin-top: 4px;">
+			           <img src="${HOME}/resources/mss/images/imgnotnull.png" style="width:16px; height:16px; margin-top: 4px;">
 			        </span>
 			        </c:if>
 										
@@ -78,7 +78,7 @@
 		
 		<c:if test="${empty list }">
 							<p style="text-align: center; margin: 50px 0 10px 0;">
-									<img class="noresult" src="/resources/mss/images/noresult.jpg">
+									<img class="noresult" src="${HOME}/resources/mss/images/noresult.jpg">
 								</p>
 								<p style="text-align: center; margin: 50px 0 10px 0;">이런! 검색 결과가 없네요.</p>
 								<p style="text-align: center; margin: 10px 0 30px 0;">다른 단어로 검색해보시길 바랍니다.</p> 
@@ -87,7 +87,7 @@
 			            		
 	            	</ul>
                  ${pagination }
-			<form method="get" action="/recommendation/list">
+			<form method="get" action="${HOME}/recommendation/list">
                 <ul class="board-search">                	
             		<li>
 	            		<select name="searchType" id="board-search-select">

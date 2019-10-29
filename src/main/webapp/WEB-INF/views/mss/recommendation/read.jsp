@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<c:import url="../include/head.jsp" />
+<%@ include file="../include/head.jsp" %>
 </head>
 <body>
-	<c:import url="../include/header.jsp" />
+	<%@ include file="../include/header.jsp" %>
 
 
  <section>
@@ -18,7 +18,7 @@
 					<li>&nbsp;</li>            					
 			    </ul>
             	<ul class="board-right-tab">
-            		<li><a class="button right-board" href="/recommendation/write">글쓰기</a></li>
+            		<li><a class="button right-board" href="${HOME}/recommendation/write">글쓰기</a></li>
             	</ul>
             	
       
@@ -32,12 +32,12 @@
             		<span class="moment1"><fmt:formatDate value="${boardVO.regdate}"  pattern="yyyy-MM-dd hh:mm:ss"/></span></p>
 					<h4>${boardVO.title}</h4>
       
-      			<form method="post" action="/recommendation/boardEditDirect"  id="directForm"> 
+      			<form method="post" action="${HOME}/recommendation/boardEditDirect"  id="directForm"> 
       			 <input type="hidden" value="${boardVO.bno}" name="bno">
       			<input type="hidden"  name="pw" id="formPw">
             	<p style="display: inline;">
 					<span id="topLikeCount" style="display: inline;">
-					<img class="board-star-img" src="/resources/mss/images/star_grey.png">0</span>
+					<img class="board-star-img" src="${HOME}/resources/mss/images/star_grey.png">0</span>
 <span style="display: inline;">조회 ${boardVO.viewcnt}</span>
 			<span style="display: inline;"><a href="#boardComment" onclick="return false;" id="boardComment2">댓글 0</a></span>
       
@@ -74,19 +74,19 @@
             		
             		<p class="addThumb col-xs-12">
             <a id="boardThumb">
-            <img class="board-star-img" src="/resources/mss/images/star_grey.png"> 추천            
+            <img class="board-star-img" src="${HOME}/resources/mss/images/star_grey.png"> 추천            
             </a>
             
             
-            			<a href="/recommendation/list">목록보기</a>            		
+            			<a href="${HOME}/recommendation/list">목록보기</a>            		
             		</p>
             		<div id="boardViewInsideAd" style="text-align: center;width:100%; height:auto; display:inline-block; margin-bottom:15px"></div>
 				</div>
 				
 				
 				
-<c:import url="replyForm.jsp"  /> 
-  
+
+<%@ include file="replyForm.jsp" %>  
   
     
     
@@ -133,7 +133,7 @@
 	<div class="board-container" style="padding-top:0px; max-width:1024px;">
 			
 		
-		<c:import url="/recommendation/inlist"></c:import>		
+		<c:import url="${HOME}/recommendation/inlist"></c:import>		
 	            	
 	 </div>
 			
@@ -185,14 +185,14 @@ $(document).ready(function(){
 					$.ajax({
 						type: "POST",
 						dataType: "text",
-						url: "/recommendation/removeDirect",
+						url: "${HOME}/recommendation/removeDirect",
 						data: {
 							bno: '${boardVO.bno}'
 						},
 						success: function (result) {		
 							if ($.trim(result) == "SUCCESS") {
 								alert("삭제되었습니다.");
-								location.href="/recommendation/list";
+								location.href="${HOME}/recommendation/list";
 							} else 
 								alert(msg);
 						}
@@ -249,7 +249,7 @@ $(document).ready(function(){
 			
 			if(type=='1'){				
 				$.ajax({
-					url:"/recommendation/passwordConfirm",
+					url:"${HOME}/recommendation/passwordConfirm",
 					type:"post",
 					dataType:"text",
 					data:{
@@ -266,7 +266,7 @@ $(document).ready(function(){
 						}
 						
 						if(re==1){
-							$("#directForm").attr("action", "/recommendation/boardEdit");
+							$("#directForm").attr("action", "${HOME}/recommendation/boardEdit");
 							$("#formPw").val(pw);
 							$("#directForm").submit();
 						}
@@ -282,7 +282,7 @@ $(document).ready(function(){
 			
 			if(type=='2'){
 				$.ajax({
-					url:"/recommendation/passwordConfirm",
+					url:"${HOME}/recommendation/passwordConfirm",
 					type:"post",
 					dataType:"text",
 					data:{
@@ -301,7 +301,7 @@ $(document).ready(function(){
 							$.ajax({
 								type: "POST",
 								dataType: "text",
-								url: "/recommendation/remove",
+								url: "${HOME}/recommendation/remove",
 								data: {
 									bno: '${boardVO.bno}',
 									pw:pw
@@ -309,7 +309,7 @@ $(document).ready(function(){
 								success: function (result) {		
 									if ($.trim(result) == "SUCCESS") {
 										alert("삭제되었습니다.");
-										location.href="/recommendation/list";
+										location.href="${HOME}/recommendation/list";
 									} else 
 										alert(msg);
 								}
@@ -340,7 +340,7 @@ $(document).ready(function(){
 			data:{
 				bno:'${boardVO.bno}'				
 			},
-	        url: "/recommendation/likeUpdate",
+	        url: "${HOME}/recommendation/likeUpdate",
 	        success:function(result){
 	        	if($.trim(result)=="SUCCESS"){
 	        		//목록 갱신	        		
@@ -390,7 +390,7 @@ $(document).ready(function(){
 	  
 	  
 		$.ajax({
-			url:"/recommendation/replies/create",
+			url:"${HOME}/recommendation/replies/create",
 	        type:"post",
 			data :{
 				bno:  bno,
@@ -435,7 +435,7 @@ $(document).ready(function(){
 			window.open(url, '_blank');
 		} else { 
 
-			window.open("/"+url, '_blank');
+			window.open("${HOME}/"+url, '_blank');
 		}
 	});
 
@@ -450,7 +450,7 @@ $(document).ready(function(){
 			return;
 		}
 		$.ajax({
-			url:"/recommendation/replies/removePassowrd/"+rno,
+			url:"${HOME}/recommendation/replies/removePassowrd/"+rno,
 			type:"post",
 			dataTye:"text",
 			data:{
@@ -487,7 +487,7 @@ function getLike(){
 		data:{
 			bno:'${boardVO.bno}'
 		},
-        url: "/recommendation/likeList",
+        url: "${HOME}/recommendation/likeList",
         success: function (result) {
         	$('#boardThumb').html(result);
         	var count =$("#likeCount").val();
@@ -495,7 +495,7 @@ function getLike(){
         		count=0;
         	}
         	//console.log(count);
-        	$("#topLikeCount").html("<img class='board-star-img' src='/resources/mss/images/star_grey.png'>"+count+"</span>");
+        	$("#topLikeCount").html("<img class='board-star-img' src='${HOME}/resources/mss/images/star_grey.png'>"+count+"</span>");
         },
         error:function(result){
         	//console.log(result);
@@ -509,7 +509,7 @@ function getLike(){
 function replyList(){
 	var bno='${boardVO.bno}';
 	var sessionCheck='${sessionScope.USER.nickname }';
-	$.get("/recommendation/replies/all/"+bno, function(data){
+	$.get("${HOME}/recommendation/replies/all/"+bno, function(data){
 		//console.log(data);
 		$("#replyList").html(data);
 		
@@ -533,7 +533,7 @@ function replyDelete(rno){
 		$.ajax({
 			type: "POST",
 			dataType: "text",
-			url: "/recommendation/replies/" + rno,
+			url: "${HOME}/recommendation/replies/" + rno,
 			success: function (result) {
 				if ($.trim(result) == "SUCCESS") {
 					alert("삭제되었습니다.");
@@ -563,8 +563,9 @@ function deleteComment(rno){
 
 
 
-	<c:import url="../include/nav-bottom.jsp" />
-	<c:import url="../include/footer.jsp" />
+
+	<%@ include file="../include/nav-bottom.jsp" %>
+	<%@ include file="../include/footer.jsp" %>
 	<script>
 
 
