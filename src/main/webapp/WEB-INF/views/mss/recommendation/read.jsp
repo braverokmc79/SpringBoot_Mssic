@@ -566,9 +566,8 @@ function deleteComment(rno){
 
 	<%@ include file="../include/nav-bottom.jsp" %>
 	<%@ include file="../include/footer.jsp" %>
+	
 	<script>
-
-
 dateFormat1();
 function dateFormat(){
 	var moments = document.getElementsByClassName('moment');
@@ -585,6 +584,21 @@ function dateFormat1(){
 	    item.innerHTML = moment(item.textContent, "YYYY-MM-DD hh:mm:ss").fromNow();
 	}
 }
+
+
+
+$(function(){
+	$("#boardCommentForm").attr("autocomplete", "off");
+	$("#submitbtn").attr("autocomplete", "off");
+	$("#clicktoshow1").attr("autocomplete", "off");
+	$("#clicktoshow2").attr("autocomplete", "off");	
+	
+	
+});
+
+function disable_autocomplete(){
+ $("#boardCommentForm").attr('autocomplete', 'off');
+}
     </script>
     
     
@@ -599,7 +613,7 @@ function dateFormat1(){
 		      
 		   <div class="modal-body">
 	     	<form action="javascript:void(0);">
-			      	<input name="password" class="board-edit-input"  id="modalRpw" maxlength="4" placeholder="비밀번호를 입력해주세요." type="password">
+			      	<input name="password" class="board-edit-input" autocomplete="off" id="modalRpw" maxlength="4" placeholder="비밀번호를 입력해주세요." type="password">
 			      	<input type="hidden" id="modalRno" />
 			      	<input class='' value='삭제' type='button' id="modalSubmit2">
 		   	</form>

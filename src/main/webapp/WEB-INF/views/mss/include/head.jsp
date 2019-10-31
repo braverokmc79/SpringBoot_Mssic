@@ -17,7 +17,8 @@
 <meta id="meta_og_type" property="og:image:type" content="image/jpeg">
 <meta id="meta_og_image_width" property="og:image:width" content="1200">
 <meta id="meta_og_image_height" property="og:image:height" content="1200">
-<meta property="fb:app_id" content="964704780327708">
+<meta name="autocomplete" content="off" /> 
+
 <title>Music Streaming Site</title>
 <link rel="shortcut icon" type="image/x-icon" href="${HOME}/resources/mss/images/four-leaf-clover.png">
 

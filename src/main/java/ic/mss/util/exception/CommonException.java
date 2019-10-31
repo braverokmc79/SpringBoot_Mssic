@@ -25,7 +25,8 @@ public class CommonException {
     
     @ExceptionHandler(Exception.class)
     public String commonErrorMessage(Exception e) {
-        logger.error("@ExceptionHandler(Exception.class) --  {}", errorMessge(e.getStackTrace()));
+        logger.error("@ExceptionHandler(Exception.class) --  {}", e.getStackTrace());
+     
         return DEFAULT_ERROR_VIEW;
     }
     
@@ -36,7 +37,7 @@ public class CommonException {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(DEFAULT_ERROR_VIEW);
         modelAndView.addObject("exception", e);
-        logger.error("@ExceptionHandler(RuntimeException.class) --  {}", errorMessge(e.getStackTrace()));
+        logger.error("@ExceptionHandler(RuntimeException.class) --  {}", e.getStackTrace());
          
         return modelAndView;
     }
@@ -51,7 +52,7 @@ public class CommonException {
             logger.error(" @ResponseBody 에서 일어난 에러");   
         }
          
-        logger.error("methodAnnotation() , {}" , errorMessge(e.getStackTrace()));   
+        logger.error("methodAnnotation() , {}" , e.getStackTrace());   
         ModelAndView modelAndView =new ModelAndView();
         modelAndView.setViewName(DEFAULT_ERROR_VIEW);
         modelAndView.addObject("exception", e);

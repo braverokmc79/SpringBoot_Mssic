@@ -3,6 +3,7 @@ package ic.mss.controller;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -74,7 +75,9 @@ public class RecommendationBoardController {
 	//recommendation/list   get 방식 호출시 목록 처리
 	//목록
 	@GetMapping("list")
-	public String getReadList(PageMakerAndSearch pageMaker, BoardVO boardVO, Model model) throws Exception{
+	public String getReadList(PageMakerAndSearch pageMaker, 
+			HttpServletRequest request,
+			BoardVO boardVO, Model model) throws Exception{
 		//전체 tbl_board 갯수를 구한다.
 		Integer totalCount=recommendationBoardService.boardTotalCount(pageMaker);
 		
@@ -87,7 +90,7 @@ public class RecommendationBoardController {
 		
 		List<BoardVO> list=recommendationBoardService.getReadList(pageMaker);
 		
-		String pagination=pageMaker.bootStrapPagingSearchHTML4("/recommendation/list");
+		String pagination=pageMaker.bootStrapPagingSearchHTML4(request.getContextPath()+"/recommendation/list");
 		
 		model.addAttribute("pagination", pagination); // 페이징 String  담는다
 		model.addAttribute("pageMaker", pageMaker);   //페이지 메이커 객체를 담는다.
@@ -122,7 +125,7 @@ public class RecommendationBoardController {
 	// recommendation/inlist  get 방식으로  호출시
 	// 게시글 상세보기 하단에  게시글을 리스트로  보여줄 것이다.
 	@GetMapping("inlist")
-	public String inlist(PageMakerAndSearch pageMaker, BoardVO boardVO, Model model) throws Exception{
+	public String inlist(PageMakerAndSearch pageMaker,HttpServletRequest request, BoardVO boardVO, Model model) throws Exception{
 		
 		Integer totalCount=recommendationBoardService.boardTotalCount(pageMaker);
 		
@@ -131,7 +134,7 @@ public class RecommendationBoardController {
 		
 		List<BoardVO> list=recommendationBoardService.getReadList(pageMaker);
 		
-		String pagination=pageMaker.bootStrapPagingSearchHTML2("/recommendation/list");
+		String pagination=pageMaker.bootStrapPagingSearchHTML2(request.getContextPath()+"/recommendation/list");
 		
 		model.addAttribute("pagination", pagination); // 페이징 String  담는다
 		model.addAttribute("pageMaker", pageMaker);   //페이지 메이커 객체를 담는다.

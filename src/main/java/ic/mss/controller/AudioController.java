@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,12 +42,15 @@ public class AudioController {
 	//private String uploadDirectory="src/main/resources/static/mp3";
 
 	//리눅스에서 저장 파일 디렉토리 위치이다.
-	private String uploadDirectory="/home/mssic/public_html/ROOT/WEB-INF/classes/static/mp3";
+	//private String uploadDirectory="/home/mssic/public_html/ROOT/WEB-INF/classes/static/mp3";	
 	
+	@Value("${upload.path}")
+	private String uploadDirectory;
+	//private String uploadDirectory="/home/mssic/uploads/";
 	
 	// get 방식 post 방식 호출 상관 없이 /audio/list  이동하게 한다.
 	@RequestMapping("list")
-	public String streamingList(PageMakerAndSearch pageMaker, AudioVO audioVO, Model model) throws Exception{		
+	public String streamingList(PageMakerAndSearch pageMaker, HttpServletRequest request, AudioVO audioVO, Model model) throws Exception{		
 		
 		//tbl_audio 테이블의 오디오 전체 갯수를 구한다.
 		Integer totalCount=audioService.audioTotalCount(pageMaker);
@@ -60,7 +64,7 @@ public class AudioController {
 		List<AudioVO> list=audioService.audioList(pageMaker);
 		
 		//페이징 처리를 해서 html로 뿌려주는 것을   pagination 변수에 넣은당.
-		String pagination=pageMaker.bootStrapPagingSearchHTML4("/audio/list");
+		String pagination=pageMaker.bootStrapPagingSearchHTML4(request.getContextPath()+"/audio/list");
 		
 		model.addAttribute("pagination", pagination); //페이징 String  담는다
 		model.addAttribute("pageMaker", pageMaker);   //페이지 메이커 객체를 담는다.

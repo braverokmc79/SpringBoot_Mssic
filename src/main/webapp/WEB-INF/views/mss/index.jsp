@@ -59,7 +59,7 @@ $(document).ready(function(){
 	<c:forEach items="${audioList }" var="row"  varStatus="status" >
 		 {
 			title:"${row.title }",
-			mp3:"${HOME}/resources/mp3/${row.fullName }"
+			mp3:"${HOME}/resources/mp3${row.fullName }"
 				
 		}	
 		<c:out  value="${   status.index < audioList.size()  ?  ',' : '' }"  />				

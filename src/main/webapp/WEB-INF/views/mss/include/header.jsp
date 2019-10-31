@@ -9,7 +9,7 @@
 <div class="visible-md visible-lg" >
 <nav class="container" id="nav" role="navigation" style="max-width: 1024px; ">
 	<ul>
-		<li id="logo"><a href="/" >
+		<li id="logo"><a href="${HOME}/" >
 			<img src="${HOME}/resources/mss/images/home.svg" >
 			</a>
 		</li>

@@ -127,9 +127,9 @@ name="file"  id="file" placeholder="제목을 입력해주세요 (최대 50자)"
 		            
 		            // 용량 체크
 		            var fileSize = this.files[0].size;
-		            var maxSize = 1024 * 1024*100;
+		            var maxSize = 1024 * 1024*150;
 		            if(fileSize > maxSize){
-		                alert("파일용량 100MB을 초과했습니다.");
+		                alert("파일용량 150MB을 초과했습니다.");
 		                $(this).val("");
 		            }		            
 		    }

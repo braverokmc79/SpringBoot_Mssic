@@ -85,16 +85,17 @@ public class FileUploadController {
          String uploadFile="";
          String fileUrl="";
         // String message="";  
-                
+         
+          
+         
         //2. 물리적 실제 저장소 에 저장하기   
         // 보안상 , jpg, jpeg, png, gif, 만 업로드 되도록 수정 
         if(UploadSecurity.check(file)){     
             uploadFile=ckuploadFile(uploadDirectory, file.getOriginalFilename(), file.getBytes());     
             logger.info(" uploadFile  -   {}" ,uploadFile);
-              
-            
+                          
             //3.URL 상에서 볼수 있는 이미지 경로
-            fileUrl ="/displayFile?fileName="+ uploadFile;
+            fileUrl =request.getContextPath()+"/displayFile?fileName="+ uploadFile;
                         
             printWriter.print(fileUrl);
              

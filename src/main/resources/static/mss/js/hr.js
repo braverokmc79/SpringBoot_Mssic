@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    $('.dropdown-toggle').dropdown();
+    //$('.dropdown-toggle').dropdown();
     //nav opecity
     $('.nav-title').mouseenter(function() {
         $(this).fadeTo('fast', 1);
